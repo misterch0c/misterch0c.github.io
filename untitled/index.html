@@ -11,7 +11,7 @@
 
     </script>
     
-    <title>Hello world!</title>
+    <title>[GITS-CTF2015] Aart - web writeup</title>
     <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -26,16 +26,16 @@
     
     <meta property="og:site_name" content="MisterCh0c" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Hello world!" />
-    <meta property="og:description" content="Hello world! Finally I decided to make a blog (: I did it before, it only had a few post and was located at misterch0c.ghost.io but since after 15 days ghost.io asked me to pay 10$/months I..." />
-    <meta property="og:url" content="http://localhost:2368/hello-world/" />
-    <meta property="article:published_time" content="2015-02-13T13:22:03.672Z" />
-    <meta property="article:modified_time" content="2015-02-13T13:52:14.390Z" />
+    <meta property="og:title" content="[GITS-CTF2015] Aart - web writeup" />
+    <meta property="og:description" content="[This is a repost from my old dead blog, it was originaly posted on january 18th 2015] The Ghost in the Shellcode CTF is now over but the website is still up and you can still complete challenges if you..." />
+    <meta property="og:url" content="http://localhost:2368/untitled/" />
+    <meta property="article:published_time" content="2015-02-13T15:57:05.880Z" />
+    <meta property="article:modified_time" content="2015-02-13T15:57:05.880Z" />
     
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Hello world!" />
-    <meta name="twitter:description" content="Hello world! Finally I decided to make a blog (: I did it before, it only had a few post and was located at misterch0c.ghost.io but since after 15 days ghost.io asked me to pay 10$/months I..." />
-    <meta name="twitter:url" content="http://localhost:2368/hello-world/" />
+    <meta name="twitter:title" content="[GITS-CTF2015] Aart - web writeup" />
+    <meta name="twitter:description" content="[This is a repost from my old dead blog, it was originaly posted on january 18th 2015] The Ghost in the Shellcode CTF is now over but the website is still up and you can still complete challenges if you..." />
+    <meta name="twitter:url" content="http://localhost:2368/untitled/" />
     
     <script type="application/ld+json">
 {
@@ -48,11 +48,11 @@
         "url": "http://localhost:2368/author/mister",
         "sameAs": null
     },
-    "headline": "Hello world!",
-    "url": "http://localhost:2368/hello-world/",
-    "datePublished": "2015-02-13T13:22:03.672Z",
-    "dateModified": "2015-02-13T13:52:14.390Z",
-    "description": "Hello world! Finally I decided to make a blog (: I did it before, it only had a few post and was located at misterch0c.ghost.io but since after 15 days ghost.io asked me to pay 10$/months I..."
+    "headline": "[GITS-CTF2015] Aart - web writeup",
+    "url": "http://localhost:2368/untitled/",
+    "datePublished": "2015-02-13T15:57:05.880Z",
+    "dateModified": "2015-02-13T15:57:05.880Z",
+    "description": "[This is a repost from my old dead blog, it was originaly posted on january 18th 2015] The Ghost in the Shellcode CTF is now over but the website is still up and you can still complete challenges if you..."
 }
     </script>
 
@@ -86,12 +86,43 @@
 
 
 
-        <h1 class="post-title">Hello world!</h1>
+        <h1 class="post-title">[GITS-CTF2015] Aart - web writeup</h1>
 
         <section class="post-content">
-            <p><img src="http://www.opinie.senior.pl/zdjecia/Orzeszki-chipsy-chrupki-krakersy/Mister-Choc-orzeszki-ziemne-w-czekoladzie-mlecznej-46586-big.jpg" alt="" />
-<br> <br />
-Hello world! Finally I decided to make a blog (: I did it before, it only had a few post and was located at misterch0c.ghost.io but since after 15 days ghost.io asked me to pay 10$/months I just moved here. I really enjoy <a href="https://ghost.org">Ghost</a> and will probably make a blog post on how I set it up using github pages quickly. In the meantime I'll just reposte the 2-3 articles my blog had before. I'm MisterCh0c, I like cheap m&amp;m's, infosec and developing. Feel free to <a href="https://twitter.com/MisterCh0c">follow me on twitter</a>. Cya later.</p>
+            <p>[This is a repost from my old dead blog, it was originaly posted on january 18th 2015]</p>
+
+<p>The <a href="https://2015.ghostintheshellcode.com/">Ghost in the Shellcode CTF</a> is now over but the website is still up and you can still complete challenges if you like (update: well not anymore..) <br />  
+This is my little write up and the web challenge called "Aart". Here's how it looks when you go to the server for the first time <br />  
+<br> <br />  
+<img src="../content/images/2015/02/aart.PNG" alt="" />
+<br> <br />  
+On the register page there was a "Source code" link so I downloaded the code and took a look at it. I noticed 2 interesting things <br />  
+Firstly the 2 SQL requests that are made when a user register <br />  
+<br> <br />  
+<img src="../content/images/2015/02/sqlaart.PNG" alt="" />
+<br> <br />  
+Then in this portion of code you can actually see that if isRestricted is true then your account is restricted and otherwise you can get the key.</p>
+
+<p><br> <br />  
+<img src="../content/images/2015/02/iddd.PNG" alt="" />
+<br> <br />  
+If you still didn't get it we're just going to register/login a bunch of usernames and wait for the key (: <br />  
+It's a timing thing. At some point the first INSERT TO will be called twice before the second one has even been called once. This will give us a user with no restricted flag. <br />  
+<br>  </p>
+
+<pre>
+for i in {1..50};
+do     
+curl --data "username=i$i&password=i" http://aart.2015.ghostintheshellcode.com/register.php -s >&1 >/dev/null &     
+curl --data "username=i$i&password=i" http://aart.2015.ghostintheshellcode.com/login.php;
+done</pre>
+
+<p><br> <br />  
+So this script is going to create accounts from 'i1' to 'i50' with the password 'i'. At some point we stumble on an unrestricted account <br />  
+<br> <br />  
+<img src="../content/images/2015/02/success.PNG" alt="" />
+<br> <br />  
+Here we go. "this is a key" was actually the key here (;</p>
         </section>
         
         <div id="disqus_thread"></div>
@@ -112,20 +143,20 @@ Hello world! Finally I decided to make a blog (: I did it before, it only had a 
         <footer class="post-footer">
 
                 <section class="author">
-                <p class="post-date">Published <time datetime="Fri Feb 13 2015 14:22:03 GMT+0100 (Paris, Madrid)">February 13th 2015</time> <strong>by <a href="https://twitter.com/MisterCh0c">MisterCh0c</a></strong></p>
+                <p class="post-date">Published <time datetime="Fri Feb 13 2015 16:57:05 GMT+0100 (Paris, Madrid)">February 13th 2015</time> <strong>by <a href="https://twitter.com/MisterCh0c">MisterCh0c</a></strong></p>
                 </section>
 
             <section class="share">
                 <h4>Share this</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Hello world!&url=http://localhost:2368/hello-world/"
+                <a class="icon-twitter" href="http://twitter.com/share?text=[GITS-CTF2015] Aart - web writeup&url=http://localhost:2368/untitled/"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/hello-world/"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/untitled/"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/hello-world/"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/untitled/"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>

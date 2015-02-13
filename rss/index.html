@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MisterCh0c]]></title><description><![CDATA[Software is like underwear. Update it regularly.]]></description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Fri, 13 Feb 2015 14:05:45 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Defuse the tar bomb]]></title><description><![CDATA[<p>Just some shell script that could have saved the world (: <br> <br>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MisterCh0c]]></title><description><![CDATA[Software is like underwear. Update it regularly.]]></description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Fri, 13 Feb 2015 16:02:01 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[[GITS-CTF2015] Aart - web writeup]]></title><description><![CDATA[<p>[This is a repost from my old dead blog, it was originaly posted on january 18th 2015]</p>
+
+<p>The <a href="https://2015.ghostintheshellcode.com/">Ghost in the Shellcode CTF</a> is now over but the website is still up and you can still complete challenges if you like (update: well not anymore..) <br>  
+This is my little write up and the web challenge called "Aart". Here's how it looks when you go to the server for the first time <br>  
+<br> <br>  
+<img src="http://localhost:2368/content/images/2015/02/aart.PNG" alt="">
+<br> <br>  
+On the register page there was a "Source code" link so I downloaded the code and took a look at it. I noticed 2 interesting things <br>  
+Firstly the 2 SQL requests that are made when a user register <br>  
+<br> <br>  
+<img src="http://localhost:2368/content/images/2015/02/sqlaart.PNG" alt="">
+<br> <br>  
+Then in this portion of code you can actually see that if isRestricted is true then your account is restricted and otherwise you can get the key.</p>
+
+<p><br> <br>  
+<img src="http://localhost:2368/content/images/2015/02/iddd.PNG" alt="">
+<br> <br>  
+If you still didn't get it we're just going to register/login a bunch of usernames and wait for the key (: <br>  
+It's a timing thing. At some point the first INSERT TO will be called twice before the second one has even been called once. This will give us a user with no restricted flag. <br>  
+<br>  </p>
+
+<pre>
+for i in {1..50};
+do     
+curl --data "username=i$i&password=i" http://aart.2015.ghostintheshellcode.com/register.php -s >&1 >/dev/null &     
+curl --data "username=i$i&password=i" http://aart.2015.ghostintheshellcode.com/login.php;
+done</pre>
+
+<p><br> <br>  
+So this script is going to create accounts from 'i1' to 'i50' with the password 'i'. At some point we stumble on an unrestricted account <br>  
+<br> <br>  
+<img src="http://localhost:2368/content/images/2015/02/success.PNG" alt="">
+<br> <br>  
+Here we go. "this is a key" was actually the key here (;</p>]]></description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">a91ae5a7-5ef4-4f5f-9869-ad78fc50a36b</guid><dc:creator><![CDATA[Mister Choc]]></dc:creator><pubDate>Fri, 13 Feb 2015 15:57:05 GMT</pubDate></item><item><title><![CDATA[Defuse the tar bomb]]></title><description><![CDATA[<p>Just some shell script that could have saved the world (: <br> <br>
 <img src="http://imgs.xkcd.com/comics/tar.png" alt=""></p><p></p>
 
 <pre><code>function extract()
