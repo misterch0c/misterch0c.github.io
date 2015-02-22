@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script>
+        // UNCOMMENT AND USE YOUR VARIABLES FOR DISQUS AND GOOGLE ANALYTICS
+        // var d_id  = '',
+        g_id  = 'UA-43267317-1', 
+        g_url = 'misterch0c.ghost.io' 
+
+    </script>
+    
+    <title>Step by step Ghost + Buster blog on Github pages</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/highlighter/prettify.css?v=52f62c166f" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=52f62c166f" />
+
+
+    <link rel="canonical" href="http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/" />
+    
+    <meta property="og:site_name" content="MisterCh0c" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Step by step Ghost + Buster blog on Github pages" />
+    <meta property="og:description" content="This is a step by step for Windows user but it&#x27;s not much different for other Os&#x27;s. If you never heard of Ghost well.. You&#x27;re looking at it. It&#x27;s a minimalistic CMS and I really like it so far.  Buster..." />
+    <meta property="og:url" content="http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/" />
+    <meta property="article:published_time" content="2015-02-19T11:42:39.096Z" />
+    <meta property="article:modified_time" content="2015-02-22T01:01:35.403Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Step by step Ghost + Buster blog on Github pages" />
+    <meta name="twitter:description" content="This is a step by step for Windows user but it&#x27;s not much different for other Os&#x27;s. If you never heard of Ghost well.. You&#x27;re looking at it. It&#x27;s a minimalistic CMS and I really like it so far.  Buster..." />
+    <meta name="twitter:url" content="http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "MisterCh0c",
+    "author": {
+        "@type": "Person",
+        "name": "Mister Choc",
+        "url": "http://localhost:2368/author/mister",
+        "sameAs": null
+    },
+    "headline": "Step by step Ghost + Buster blog on Github pages",
+    "url": "http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/",
+    "datePublished": "2015-02-19T11:42:39.096Z",
+    "dateModified": "2015-02-22T01:01:35.403Z",
+    "description": "This is a step by step for Windows user but it&#x27;s not much different for other Os&#x27;s. If you never heard of Ghost well.. You&#x27;re looking at it. It&#x27;s a minimalistic CMS and I really like it so far.  Buster..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5" />
+    <link rel="alternate" type="application/rss+xml" title="MisterCh0c" href="http://localhost:2368/rss/" />
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', g_id, g_url);
+      ga('send', 'pageview');
+    
+    </script>
+</head>
+<body class="post-template">
+
+    
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <a id="blog-logo" href="http://localhost:2368">
+                    <img src="../content/images/2015/02/VSfNaIjh.jpeg" alt="Blog Logo" />
+            </a>
+        </header>
+
+
+
+        <h1 class="post-title">Step by step Ghost + Buster blog on Github pages</h1>
+
+        <section class="post-content">
+            <p>This is a step by step for Windows user but it's not much different for other Os's. If you never heard of Ghost well.. You're looking at it. It's a minimalistic CMS and I really like it so far. <br />
+Buster is a static page generator built for Ghost. We need it since you can only host static pages on Github. <br />
+So let's get started. We'll first download/install all the things we'll need:</p>
+
+<ul>
+<li><a href="http://nodejs.org/dist/">Install Nodejs</a> (version 0.10.x!)<br></li>
+<li><a href="https://www.python.org/downloads/release/python-279/">Install Python 2.7</a><br></li>
+<li><a href="https://ghost.org/download/">Get Ghost</a></li>
+</ul>
+
+<p>We need pip to install Buster. Luckily for us Python 2.7 comes with easy install. So open up your terminal and run the following</p>
+
+<pre><code><span class="nocode">cd "c:\Python27\Scripts"
+easy_install.exe install pip
+</span></code></pre>
+
+<p>Now you should be able to</p>
+
+<pre><span class="nocode">pip.exe install buster</span></pre>
+
+<p>Note that pip is located to the C:\Python27\Scripts folder. <br />
+At this point you should be able to run the'Node' and 'python' command, if Windows doesn't find it follow the next step. <br />
+It seems like Nodejs installer appends a trailing '/' in the Windows PATH variable and that cause it to fail. So open up control panel -> System -> Advanced Parameters -> Environments Variable then look for the Path variable and click edit. <br />
+You should have this included in your PATH:</p>
+
+<pre><span class="nocode">C:\Program Files (x86)\nodejs;C:\Python27</span></pre>
+
+<h1>Install Ghost </h1>  
+
+<p>Let's get into the good stuff! Extract Ghost in the folder of your choice. <br />
+Get in there and run  </p>
+
+<pre><span class="nocode">npm install --production
+npm start
+</span></pre>
+
+<p>You can now access your blog locally on localhost:2368 and  localhost:2368/ghost to quickly configurate it. Now that we have Ghost installed locally it's time to generate a static page and push it on Github. <br />
+So firstly go on Github and create a new repository nammed yourUsername.github.io <br />
+Get in the directory where you installed Buster and run the following command. </p>
+
+<h1>Generate static pages</h1>  
+
+<pre><span class="nocode">buster.exe setup
+buster.exe generate --domain 127.0.0.1:2368
+buster.exe preview
+buster.exe deploy</span></pre>
+
+<p>The setup command will ask you for your Github repository url. <br />
+The generate command simply generates static pages for you. Then the preview command will show you a preview of the generated pages and the deploy command will push everything on Github. <br />
+If you're using Cygwin forget about it it won't work. Also I got an issue with the buster executable but it also comes with a python script so use that instead if you have issues.</p>
+
+<p><img src="../content/images/2015/02/buster-pg.PNG" alt="" /></p>
+
+<p>On random notes I forked a theme called "The Shell". You can check it out on my Github repo</p>
+        </section>
+        
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = d_id; 
+        
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
+        <footer class="post-footer">
+
+                <section class="author">
+                <p class="post-date">Published <time datetime="Thu Feb 19 2015 12:42:39 GMT+0100 (Paris, Madrid)">February 19th 2015</time> <strong>by <a href="https://twitter.com/MisterCh0c">MisterCh0c</a></strong></p>
+                </section>
+
+            <section class="share">
+                <h4>Share this</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Step by step Ghost + Buster blog on Github pages&url=http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+    <footer class="site-footer">
+    <a class="subscribe icon-feed" href="http://localhost:2368/rss/"><span class="tooltip">Subscribe!</span></a>
+        <div class="inner">
+             <section class="copyright">All content copyright <a href="../index.html">MisterCh0c</a> &copy; 2015 &bull; All rights reserved.</section>
+             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org">Ghost</a> in <a href="https://github.com/mityalebedev/The-Shell">The Shell</a> theme.</section>
+        </div>
+    </footer>
+
+    <script src="../public/jquery.js?v=52f62c166f"></script>
+    
+    <script type='text/javascript' src='../assets/highlighter/prettify.js'></script>
+    <script type='text/javascript' src='../assets/js/shell.js'></script>
+</body>
+</html>
