@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MisterCh0c]]></title><description><![CDATA[Software is like underwear. Update it regularly.]]></description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Fri, 13 Feb 2015 16:02:01 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[[GITS-CTF2015] Aart - web writeup]]></title><description><![CDATA[<p>[This is a repost from my old dead blog, it was originaly posted on january 18th 2015]</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MisterCh0c]]></title><description><![CDATA[Software is like underwear. Update it regularly.]]></description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Tue, 24 Feb 2015 11:45:04 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Step by step Ghost + Buster blog on Github pages]]></title><description><![CDATA[<p>This is a step by step for Windows user but it's not much different for other Os's. If you never heard of Ghost well.. You're looking at it. It's a minimalistic CMS and I really like it so far. <br>
+Buster is a static page generator built for Ghost. We need it since you can only host static pages on Github. <br>
+So let's get started. We'll first download/install all the things we'll need:</p>
+
+<ul>
+<li><a href="http://nodejs.org/dist/">Install Nodejs</a> (version 0.10.x!)<br></li>
+<li><a href="https://www.python.org/downloads/release/python-279/">Install Python 2.7</a><br></li>
+<li><a href="https://ghost.org/download/">Get Ghost</a></li>
+</ul>
+
+<p>We need pip to install Buster. Luckily for us Python 2.7 comes with easy install. So open up your terminal and run the following</p>
+
+<pre><code><span class="nocode">cd "c:\Python27\Scripts"
+easy_install.exe install pip
+</span></code></pre>
+
+<p>Now you should be able to</p>
+
+<pre><span class="nocode">pip.exe install buster</span></pre>
+
+<p>Note that pip is located to the C:\Python27\Scripts folder. <br>
+At this point you should be able to run the'Node' and 'python' command, if Windows doesn't find it follow the next step. <br>
+It seems like Nodejs installer appends a trailing '/' in the Windows PATH variable and that cause it to fail. So open up control panel -> System -> Advanced Parameters -> Environments Variable then look for the Path variable and click edit. <br>
+You should have this included in your PATH:</p>
+
+<pre><span class="nocode">C:\Program Files (x86)\nodejs;C:\Python27</span></pre>
+
+<h1>Install Ghost </h1>  
+
+<p>Let's get into the good stuff! Extract Ghost in the folder of your choice. <br>
+Get in there and run  </p>
+
+<pre><span class="nocode">npm install --production
+npm start
+</span></pre>
+
+<p>You can now access your blog locally on localhost:2368 and  localhost:2368/ghost to quickly configurate it. Now that we have Ghost installed locally it's time to generate a static page and push it on Github. <br>
+So firstly go on Github and create a new repository nammed yourUsername.github.io <br>
+Get in the directory where you installed Buster and run the following command. </p>
+
+<h1>Generate static pages</h1>  
+
+<pre><span class="nocode">buster.exe setup
+buster.exe generate --domain 127.0.0.1:2368
+buster.exe preview
+buster.exe deploy</span></pre>
+
+<p>The setup command will ask you for your Github repository url. <br>
+The generate command simply generates static pages for you. Then the preview command will show you a preview of the generated pages and the deploy command will push everything on Github. <br>
+If you're using Cygwin forget about it it won't work. Also I got an issue with the buster executable but it also comes with a python script so use that instead if you have issues.</p>
+
+<p><img src="http://localhost:2368/content/images/2015/02/buster-pg.PNG" alt=""></p>
+
+<p>On random notes for this blog I forked a theme called "The Shell", link to the orignal one is on the footer or you can check <a href="https://github.com/misterch0c/The-Shell">my fork on github</a></p>]]></description><link>http://localhost:2368/ghost-buster-hosted-on-github-page-windows-installation/</link><guid isPermaLink="false">b4472bc4-a583-4929-ba1b-6499d84c06b4</guid><dc:creator><![CDATA[Mister Choc]]></dc:creator><pubDate>Thu, 19 Feb 2015 11:42:39 GMT</pubDate></item><item><title><![CDATA[[GITS-CTF2015] Aart - web writeup]]></title><description><![CDATA[<p>[This is a repost from my old dead blog, it was originaly posted on january 18th 2015]</p>
 
 <p>The <a href="https://2015.ghostintheshellcode.com/">Ghost in the Shellcode CTF</a> is now over but the website is still up and you can still complete challenges if you like (update: well not anymore..) <br>  
 This is my little write up and the web challenge called "Aart". Here's how it looks when you go to the server for the first time <br>  
