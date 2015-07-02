@@ -1,22 +1,22 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>MisterCh0c</title><description>Thoughts, stories and ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 02 Jul 2015 21:54:38 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Infosec Institute CTF writeup lvl 1- 6</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>MisterCh0c</title><description>Software is like underwear. Update it regularly.</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 02 Jul 2015 22:10:46 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Infosec Institute CTF writeup lvl 1- 6</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
 
 &lt;h3 id="level1"&gt;Level 1&lt;/h3&gt;
 
-&lt;p&gt;For this level we are already told that we have to exploit an xss and pop an alert containing "Ex1". So the basic payload to do that looks like this: &lt;br&gt;
+&lt;p&gt;For this level we are already told that we have to exploit an XSS and pop an alert containing "Ex1". So the basic payload to do that looks like this: &lt;br&gt;
 &lt;code&gt;&amp;lt;script&amp;gt;alert('Ex1')&amp;lt;/script&amp;gt;&lt;/code&gt;
 &lt;br&gt;We can't just post this because some validation are made&lt;/p&gt;</description><link>http://localhost:2368/infosec-institute/</link><guid isPermaLink="false">c37f177c-9d88-4e73-b7a0-77c3df0d5331</guid><dc:creator>misterch0c</dc:creator><pubDate>Wed, 01 Jul 2015 23:03:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
 
 &lt;h3 id="level1"&gt;Level 1&lt;/h3&gt;
 
-&lt;p&gt;For this level we are already told that we have to exploit an xss and pop an alert containing "Ex1". So the basic payload to do that looks like this: &lt;br&gt;
+&lt;p&gt;For this level we are already told that we have to exploit an XSS and pop an alert containing "Ex1". So the basic payload to do that looks like this: &lt;br&gt;
 &lt;code&gt;&amp;lt;script&amp;gt;alert('Ex1')&amp;lt;/script&amp;gt;&lt;/code&gt;
-&lt;br&gt;We can't just post this because some validation are made on both parameter. I choose to attack the url parameter but you could attack the other one it's basicaly the same thing. &lt;br&gt;
+&lt;br&gt;We can't just post this because some validation are made on both parameters. I choose to attack the url parameter but you could attack the other one it's basically the same thing. &lt;br&gt;
 This is the code of the url element:  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;input type="text" placeholder="Name of site" maxsize="10" class="form-control" pattern="[A Za-z]+" required="" name="name"&amp;gt;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;So I removed &lt;code&gt;pattern="[A Za-z]&lt;/code&gt; which makes the input only accept uppercase or lower case characters and also changed the type value from "url" to "text".So now we can post stuff! But still no alert. I took a look at the javascript and noticed this: &lt;br&gt;
+&lt;p&gt;So I removed &lt;code&gt;pattern="[A Za-z]&lt;/code&gt; which makes the input only accept uppercase or lowercase characters and also changed the type value from "url" to "text".So now we can post stuff! But still no alert. I took a look at the javascript and noticed this: &lt;br&gt;
 &lt;code&gt;var siteName = $(".ex1input[type='text']").val().trim().replace(/&amp;lt;/g,"&amp;amp;lt;").replace(/&amp;gt;/g, "&amp;amp;gt;");&lt;/code&gt;
 What it's doing is replacing &amp;lt; and &gt; with their html code, which is not what we want. So there in chrome I just removed the .replace(), hit ctrl+s and voilà&lt;/p&gt;
 
@@ -24,16 +24,16 @@ What it's doing is replacing &amp;lt; and &gt; with their html code, which is no
 
 &lt;h2 id="level2"&gt;Level 2&lt;/h2&gt;
 
-&lt;p&gt;The page showed a calculator and we were asked to inject the PHP statement shat shows informaormations about Apache etc which is basicaly &lt;code&gt;phpinfo();&lt;/code&gt;. I quickly noticed that the two inputs were verified. You could only enter numbers and nothing on the frontend to bypass that. That leaves us with the only other thing can send: the operator. &lt;br&gt;
+&lt;p&gt;The page showed a calculator and we were asked to inject the PHP statement shat shows informations about Apache etc which is basicaly &lt;code&gt;phpinfo();&lt;/code&gt;. I quickly noticed that the two inputs were verified. You could only enter numbers and nothing on the frontend to bypass that. That leaves us with the only other thing can we're sending: the operator. &lt;br&gt;
 I modified the operator value like this: &lt;br&gt;
-&lt;code&gt;&amp;lt;option value=";phpinfo();"&amp;gt;+&amp;lt;/option&amp;gt;&lt;/code&gt; so basically when you send 1+1 it would translate to valid php code &lt;code&gt;1;phpinfo();1;&lt;/code&gt;&lt;/p&gt;
+&lt;code&gt;&amp;lt;option value=";phpinfo();"&amp;gt;+&amp;lt;/option&amp;gt;&lt;/code&gt; so basically when you send 1+1 it would translate to valid php code: &lt;code&gt;1;phpinfo();1;&lt;/code&gt;&lt;/p&gt;
 
 &lt;h2 id="level3"&gt;Level 3&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/lvl3.png" alt=""&gt;&lt;/p&gt;
 
-&lt;p&gt;First thing is to create an account, then after login I could see 'role:normal' so the delimiter is ":" to separate key/value and I guessed that it would have a newline after that. &lt;br&gt;
-So my idea was to insert something like &lt;code&gt;someName\nrole:admin&lt;/code&gt;but obviously I couldn't just do this in the form. The easiest way I found is to change the input type to "textarea" that allows you to input a new line and &lt;code&gt;role:admin&lt;/code&gt; in it. Otherwhise you can intercept the request with burpsuite for example and modify it there I guess  &lt;/p&gt;
+&lt;p&gt;First thing is to create an account, then after login I could see 'role:normal' which was a hint. So the delimiter is ":" to separate key/value and I guessed that it would have a newline after that. &lt;br&gt;
+So my idea was to insert something like &lt;code&gt;someName\nrole:admin&lt;/code&gt;but I couldn't just do this in the form. The easiest way I found to do it is to change the input type to "textarea", that allows you to input a new line and &lt;code&gt;role:admin&lt;/code&gt; in it. Otherwhise you can intercept the request with burpsuite for example and modify it there  &lt;/p&gt;
 
 &lt;h2 id="level4"&gt;Level 4&lt;/h2&gt;
 
@@ -63,7 +63,16 @@ From there we got this error message:&lt;/p&gt;
 
 &lt;p&gt;I intercept a request with burpsuite and changed the refer to login.html which I got from the source code. It tricks the browser to think we're coming from the login page&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-02--1435873160_546x342_scrot.png" alt=""&gt;&lt;/p&gt;</content:encoded></item><item><title>Cracking Sublime Text with Ollydbg</title><description>&lt;p&gt;I've been using Sublime Text 3 (which I purchased) for a while and I was wondering if I could crack it with my basic knowledge. &lt;/p&gt;
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-02--1435873160_546x342_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;h2 id="level6"&gt;Level 6&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It seems you have landed on a site that takes HTML tags for article's comments. You want to exploit this by making the users perform an action on the bank.php file in the root of site.com, if they are logged in there. You want users browsers to load that page and execute the query string transferTo with the number 555 as a parameter. Go ahead.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well this was just about reading the instructions. &lt;br&gt;
+&lt;code&gt;&amp;lt;img src="http://site.com/bank.php?transferTo=555"&amp;gt;&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title>Cracking Sublime Text with Ollydbg</title><description>&lt;p&gt;I've been using Sublime Text 3 (which I purchased) for a while and I was wondering if I could crack it with my basic knowledge. &lt;/p&gt;
 
 &lt;p&gt;My goal here is was to get rid of these:&lt;br&gt; &lt;br&gt;  
 &lt;img src="http://localhost:2368/cracking-sublime-text-with-ollydbg/../content/images/2015/03/nags.PNG" alt="" title=""&gt;&lt;br&gt;  

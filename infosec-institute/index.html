@@ -27,14 +27,14 @@
     <meta property="og:site_name" content="MisterCh0c">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Infosec Institute CTF writeup lvl 1- 6">
-    <meta property="og:description" content="Level 1 For this level we are already told that we have to exploit an xss and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:  &amp;lt;script&amp;gt;alert('Ex1')&amp;lt;/script&amp;gt;...">
+    <meta property="og:description" content="Level 1 For this level we are already told that we have to exploit an XSS and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:  &amp;lt;script&amp;gt;alert('Ex1')&amp;lt;/script&amp;gt;...">
     <meta property="og:url" content="http://localhost:2368/infosec-institute/">
     <meta property="article:published_time" content="2015-07-01T23:03:37.546Z">
-    <meta property="article:modified_time" content="2015-07-02T21:53:11.731Z">
+    <meta property="article:modified_time" content="2015-07-02T22:08:05.478Z">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Infosec Institute CTF writeup lvl 1- 6">
-    <meta name="twitter:description" content="Level 1 For this level we are already told that we have to exploit an xss and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:  &amp;lt;script&amp;gt;alert('Ex1')&amp;lt;/script&amp;gt;...">
+    <meta name="twitter:description" content="Level 1 For this level we are already told that we have to exploit an XSS and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:  &amp;lt;script&amp;gt;alert('Ex1')&amp;lt;/script&amp;gt;...">
     <meta name="twitter:url" content="http://localhost:2368/infosec-institute/">
     
     <script type="application/ld+json">
@@ -52,8 +52,8 @@
     "headline": "Infosec Institute CTF writeup lvl 1- 6",
     "url": "http://localhost:2368/infosec-institute/",
     "datePublished": "2015-07-01T23:03:37.546Z",
-    "dateModified": "2015-07-02T21:53:11.731Z",
-    "description": "Level 1 For this level we are already told that we have to exploit an xss and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:  &amp;lt;script&amp;gt;alert(&#x27;Ex1&#x27;)&amp;lt;/script&amp;gt;..."
+    "dateModified": "2015-07-02T22:08:05.478Z",
+    "description": "Level 1 For this level we are already told that we have to exploit an XSS and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:  &amp;lt;script&amp;gt;alert(&#x27;Ex1&#x27;)&amp;lt;/script&amp;gt;..."
 }
     </script>
 
@@ -81,7 +81,7 @@
 
         <header class="post-header">
             <a id="blog-logo" href="../">
-                    <img src="../content/images/2015/07/9uxc_Ydh.png" alt="Blog Logo">
+                    <img src="../content/images/2015/07/VSfNaIjh.jpeg" alt="Blog Logo">
             </a>
         </header>
 
@@ -94,15 +94,15 @@
 
 <h3 id="level1">Level 1</h3>
 
-<p>For this level we are already told that we have to exploit an xss and pop an alert containing "Ex1". So the basic payload to do that looks like this: <br>
+<p>For this level we are already told that we have to exploit an XSS and pop an alert containing "Ex1". So the basic payload to do that looks like this: <br>
 <code>&lt;script&gt;alert('Ex1')&lt;/script&gt;</code>
-<br>We can't just post this because some validation are made on both parameter. I choose to attack the url parameter but you could attack the other one it's basicaly the same thing. <br>
+<br>We can't just post this because some validation are made on both parameters. I choose to attack the url parameter but you could attack the other one it's basically the same thing. <br>
 This is the code of the url element:  </p>
 
 <pre><code>&lt;input type="text" placeholder="Name of site" maxsize="10" class="form-control" pattern="[A Za-z]+" required="" name="name"&gt;  
 </code></pre>
 
-<p>So I removed <code>pattern="[A Za-z]</code> which makes the input only accept uppercase or lower case characters and also changed the type value from "url" to "text".So now we can post stuff! But still no alert. I took a look at the javascript and noticed this: <br>
+<p>So I removed <code>pattern="[A Za-z]</code> which makes the input only accept uppercase or lowercase characters and also changed the type value from "url" to "text".So now we can post stuff! But still no alert. I took a look at the javascript and noticed this: <br>
 <code>var siteName = $(".ex1input[type='text']").val().trim().replace(/&lt;/g,"&amp;lt;").replace(/&gt;/g, "&amp;gt;");</code>
 What it's doing is replacing &lt; and &gt; with their html code, which is not what we want. So there in chrome I just removed the .replace(), hit ctrl+s and voilà</p>
 
@@ -110,16 +110,16 @@ What it's doing is replacing &lt; and &gt; with their html code, which is not wh
 
 <h2 id="level2">Level 2</h2>
 
-<p>The page showed a calculator and we were asked to inject the PHP statement shat shows informaormations about Apache etc which is basicaly <code>phpinfo();</code>. I quickly noticed that the two inputs were verified. You could only enter numbers and nothing on the frontend to bypass that. That leaves us with the only other thing can send: the operator. <br>
+<p>The page showed a calculator and we were asked to inject the PHP statement shat shows informations about Apache etc which is basicaly <code>phpinfo();</code>. I quickly noticed that the two inputs were verified. You could only enter numbers and nothing on the frontend to bypass that. That leaves us with the only other thing can we're sending: the operator. <br>
 I modified the operator value like this: <br>
-<code>&lt;option value=";phpinfo();"&gt;+&lt;/option&gt;</code> so basically when you send 1+1 it would translate to valid php code <code>1;phpinfo();1;</code></p>
+<code>&lt;option value=";phpinfo();"&gt;+&lt;/option&gt;</code> so basically when you send 1+1 it would translate to valid php code: <code>1;phpinfo();1;</code></p>
 
 <h2 id="level3">Level 3</h2>
 
 <p><img src="../content/images/2015/07/lvl3.png" alt=""></p>
 
-<p>First thing is to create an account, then after login I could see 'role:normal' so the delimiter is ":" to separate key/value and I guessed that it would have a newline after that. <br>
-So my idea was to insert something like <code>someName\nrole:admin</code>but obviously I couldn't just do this in the form. The easiest way I found is to change the input type to "textarea" that allows you to input a new line and <code>role:admin</code> in it. Otherwhise you can intercept the request with burpsuite for example and modify it there I guess  </p>
+<p>First thing is to create an account, then after login I could see 'role:normal' which was a hint. So the delimiter is ":" to separate key/value and I guessed that it would have a newline after that. <br>
+So my idea was to insert something like <code>someName\nrole:admin</code>but I couldn't just do this in the form. The easiest way I found to do it is to change the input type to "textarea", that allows you to input a new line and <code>role:admin</code> in it. Otherwhise you can intercept the request with burpsuite for example and modify it there  </p>
 
 <h2 id="level4">Level 4</h2>
 
@@ -150,6 +150,15 @@ From there we got this error message:</p>
 <p>I intercept a request with burpsuite and changed the refer to login.html which I got from the source code. It tricks the browser to think we're coming from the login page</p>
 
 <p><img src="../content/images/2015/07/2015-07-02--1435873160_546x342_scrot.png" alt=""></p>
+
+<h2 id="level6">Level 6</h2>
+
+<blockquote>
+  <p>It seems you have landed on a site that takes HTML tags for article's comments. You want to exploit this by making the users perform an action on the bank.php file in the root of site.com, if they are logged in there. You want users browsers to load that page and execute the query string transferTo with the number 555 as a parameter. Go ahead.</p>
+</blockquote>
+
+<p>Well this was just about reading the instructions. <br>
+<code>&lt;img src="http://site.com/bank.php?transferTo=555"&gt;</code></p>
         </section>
         
         <div id="disqus_thread"></div>
