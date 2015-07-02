@@ -33,7 +33,7 @@
 @font-face {
     font-family: 'icons';
     src:url('../fonts/icons.eot');
-    src:url('../fonts/icons.eot@') format('embedded-opentype'),
+    src:url('../fonts/icons.eot?') format('embedded-opentype'),
         url('../fonts/icons.woff') format('woff'),
         url('../fonts/icons.ttf') format('truetype'),
         url('../fonts/icons.svg') format('svg');
@@ -87,7 +87,7 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: "Gruppo";
+    font-family: "open";
     font-size: 2.0rem;
     line-height: 1.6em;
     color: #B2B6BD;
@@ -454,7 +454,7 @@ button, input, select, textarea {
 .post {
     position: relative;
     width:80%;
-    max-width: 700px;
+    max-width: 850px;
     margin: 4rem auto;
     padding-bottom: 4rem;
     border-bottom: #424650 1px solid;
@@ -564,6 +564,7 @@ button, input, select, textarea {
     margin-top: 0;
     border-bottom: none;
     padding-bottom: 0;
+
 }
 
 /* Kill that stylish little circle that was on the border, too */
