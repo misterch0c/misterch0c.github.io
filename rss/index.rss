@@ -1,4 +1,80 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>MisterCh0c</title><description>Software is like underwear. Update it regularly.</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Thu, 02 Jul 2015 22:10:46 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Infosec Institute CTF writeup lvl 1- 6</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>MisterCh0c</title><description>Software is like underwear. Update it regularly.</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Sat, 04 Jul 2015 14:00:18 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Infosec Institute CTF writeup lvl 7 - 13</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
+
+&lt;h3 id="level7"&gt;Level 7&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You have some kind of a login form. You want to make a prank on Twitter. You want to add a h1 to the page and share it with your Twitter followers so they can see that you can modify the page as it pleases you. You do&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://localhost:2368/infosec-institute-ctf-writeup-lvl-6-13/</link><guid isPermaLink="false">16d9d74f-88a7-4d06-bdb1-50e886600838</guid><dc:creator>misterch0c</dc:creator><pubDate>Sat, 04 Jul 2015 13:37:52 GMT</pubDate><content:encoded>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
+
+&lt;h3 id="level7"&gt;Level 7&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You have some kind of a login form. You want to make a prank on Twitter. You want to add a h1 to the page and share it with your Twitter followers so they can see that you can modify the page as it pleases you. You do not really want to cause harm. 
+  Do some magic and add &lt;code&gt;&amp;lt;h1&amp;gt;YOUR NAME HERE&amp;lt;/h1&amp;gt;&lt;/code&gt; in a way that people who visit the link you provide will the heading.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There was an hidden field on the page and it was pretty clear that this page was making request on it's own. So we have to exploit the &lt;a href="http://www.cyberscorpion.com/2012-03/why-php_self-should-be-avoided-when-creating-website-links/"&gt;PHP_SELF vulnerability&lt;/a&gt; here. This is how I injected the code closing the input tag: &lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex7.php?arg='&amp;gt;&amp;lt;h1&amp;gt;username&amp;lt;/h1&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id="level8"&gt;Level 8&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Your task is to penetrate this site. You need to take advantage of the image upload and execute a JS script with an alert somehow through a file. Godspeed!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The first thing I did was to upload a regular image file. Then I clicked on the "Editor's choice" and from there I knew were were stored the images: &lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/ex8_assets/img/chess3.png&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex8.php?attachment_id=1&lt;/code&gt;&lt;br&gt;
+Ok, so I tried to upload a html file but got an error. This was easy to bypass using burpsuite I just changed the extension from .jpg to .html and it worked (:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-04--1436015617_594x260_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-04--1436015735_447x60_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately I couldn't access it like the other images. I got an error because the server is trying to load an image but our file isn't a valid images. So I thought maybe If I increased the id in attachment_id then my file should be referenced but nope... After some fuzzing I found out I was right about the referencing: &lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex8.php?file=payload8.jpg&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id="level9"&gt;Level 9&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-04--1436016675_551x365_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;p&gt;First thing I did was to open Cookie Manager and check the cookie. I saw a string which looked like b64 in the content value and I was right. The decoded b64 looks like this: &lt;code&gt;JOHN+DOE&lt;/code&gt;, alright.. So &lt;code&gt;MARY+JANE&lt;/code&gt; in b64 is &lt;code&gt;TUFSWStKQU5F&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-04--1436017021_596x408_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-04--1436017006_693x355_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;h3 id="level10"&gt;Level 10&lt;/h3&gt;
+
+&lt;p&gt;A game... Ew I hate games, I didn't even wanted to play it to hack it, sorry  &lt;/p&gt;
+
+&lt;h3 id="level11"&gt;Level 11&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It seems you have been blacklisted. Knowing what websites typically use to identify their users - try to get rid of that ban&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First thing I did was to connect to my vpn to see if I see any change but nope. So I check the cookie and &lt;code&gt;content&lt;/code&gt; value was 'no" so I just said 'yes'&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2015/07/2015-07-04--1436010593_591x239_scrot.png" alt=""&gt;&lt;/p&gt;
+
+&lt;h3 id="level12"&gt;Level 12&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Your task is to crack the password of the user called admin. Use whatever tool you like but we would recommend entering Google and searching for filetype:lst password in order to perform a dictionary attack.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Again I skipped this one because they pretty much give it away. They give the worlist and the attack... So just use your favorite http form bruteforer like wpfuzz, medusa, hydra, patator...  &lt;/p&gt;
+
+&lt;h3 id="level13"&gt;Level 13&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hmm, it seems that level thirteen is redirecting to this page. Why do not you analyze the redirect and search if the redirect is validated thoroughly. If not, you want to redirect to a page on a remote server and send links to people fooling them to think they are accessing a different domain.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It took me a while to figure this on because I was jumping levels and ex13.php was a different page than the real challenge. But when I clicked on it and got the real page the solution was pretty obvious. It's just and insecure redirect:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex13.php?redirect=//google.com&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title>Infosec Institute CTF writeup lvl 1- 6</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
 
 &lt;h3 id="level1"&gt;Level 1&lt;/h3&gt;
 
