@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>MisterCh0c</title><description>Software is like underwear. Update it regularly.</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Sat, 04 Jul 2015 14:00:18 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Infosec Institute CTF writeup lvl 7 - 13</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>MisterCh0c</title><description>Software is like underwear. Update it regularly.</description><link>http://localhost:2368/</link><generator>Ghost 0.6</generator><lastBuildDate>Mon, 06 Jul 2015 17:37:49 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Infosec Institute CTF writeup lvl 7 - 13</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
 
 &lt;h3 id="level7"&gt;Level 7&lt;/h3&gt;
 
@@ -74,7 +74,9 @@ Ok, so I tried to upload a html file but got an error. This was easy to bypass u
 
 &lt;p&gt;It took me a while to figure this on because I was jumping levels and ex13.php was a different page than the real challenge. But when I clicked on it and got the real page the solution was pretty obvious. It's just and insecure redirect:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex13.php?redirect=//google.com&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title>Infosec Institute CTF writeup lvl 1- 6</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex13.php?redirect=//google.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Thx to byt3me who helped me in some of the challenges,you can checkout his writups which are more detailed than mine on &lt;a href="https://secnotes.github.io/"&gt;SecNotes&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Infosec Institute CTF writeup lvl 1- 6</title><description>&lt;p&gt;&lt;br&gt;  &lt;/p&gt;
 
 &lt;h3 id="level1"&gt;Level 1&lt;/h3&gt;
 
