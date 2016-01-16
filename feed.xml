@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MisterChOc</title>
-    <description>A dark blog theme for Jekyll.</description>
-    <link>http://carte-noire.jacobtomlinson.co.uk//</link>
-    <atom:link href="http://carte-noire.jacobtomlinson.co.uk//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 16 Jan 2016 21:14:28 +0100</pubDate>
-    <lastBuildDate>Sat, 16 Jan 2016 21:14:28 +0100</lastBuildDate>
+    <description>Software is like underwear. Update it regularly.</description>
+    <link>http://misterch0c.github.io/</link>
+    <atom:link href="http://misterch0c.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 16 Jan 2016 21:20:15 +0100</pubDate>
+    <lastBuildDate>Sat, 16 Jan 2016 21:20:15 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -115,8 +115,8 @@ cat /home/omarabdu/public_html/nonso/config.php&lt;/code&gt;&lt;/pre&gt;&lt;/fig
 &lt;p&gt;&lt;img src=&quot;http://www.reactiongifs.com/wp-content/uploads/2013/02/lolol.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Jan 2016 18:00:21 +0100</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/1-panel-2-panels/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/1-panel-2-panels/</guid>
+        <link>http://misterch0c.github.io/jekyll/2016/01/16/1-panel-2-panels/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2016/01/16/1-panel-2-panels/</guid>
         
         <category>keybase</category>
         
@@ -248,8 +248,8 @@ shell. Even fewer chase the rabbit down its hole.&lt;/p&gt;
 &lt;p&gt;Game over (:&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Jan 2016 13:31:19 +0100</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/PRIMER-1-walkthrough/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/PRIMER-1-walkthrough/</guid>
+        <link>http://misterch0c.github.io/jekyll/2016/01/16/PRIMER-1-walkthrough/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2016/01/16/PRIMER-1-walkthrough/</guid>
         
         <category>vm</category>
         
@@ -338,8 +338,8 @@ Ok, so I tried to upload a html file but got an error. This was easy to bypass u
 &lt;p&gt;Thx to byt3me who helped me in some of the challenges,you can checkout his writups which are more detailed than mine on &lt;a href=&quot;https://secnotes.github.io/&quot;&gt;SecNotes&amp;lt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 04 Jul 2015 14:32:18 +0200</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/07/04/infosec-institute-ctf-part-two/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/07/04/infosec-institute-ctf-part-two/</guid>
+        <link>http://misterch0c.github.io/jekyll/2015/07/04/infosec-institute-ctf-part-two/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2015/07/04/infosec-institute-ctf-part-two/</guid>
         
         <category>thumbnails</category>
         
@@ -416,8 +416,8 @@ From there we got this error message:&lt;/p&gt;
 &lt;p&gt;Well this was just about reading the instructions.&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jul 2015 16:22:05 +0200</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</guid>
+        <link>http://misterch0c.github.io/jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</guid>
         
         
         <category>jekyll</category>
@@ -458,8 +458,8 @@ curl --data &lt;span class=&quot;s2&quot;&gt;&quot;username=i&lt;/span&gt;&lt;sp
 &lt;p&gt;Here we go. &amp;quot;this is a key&amp;quot; was actually the key here (;&lt;/p&gt;
 </description>
         <pubDate>Sun, 18 Jan 2015 13:31:19 +0100</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/01/18/aart-web-writeup/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/01/18/aart-web-writeup/</guid>
+        <link>http://misterch0c.github.io/jekyll/2015/01/18/aart-web-writeup/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2015/01/18/aart-web-writeup/</guid>
         
         <category>demo</category>
         
