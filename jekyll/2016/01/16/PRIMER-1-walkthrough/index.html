@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRIMER 1 VM Walkthrough</title>
+<meta name="description" content="A dark blog theme for Jekyll.">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>MisterChOc</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  <a href="http://www.twitter.com/misterch0c" target="_new"><i class="fa fa-twitter"></i></a>
+  
+  
+  <a href="https://github.com/misterch0c" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-cogs fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">PRIMER 1 VM Walkthrough</h1>
+
+      <div class="author">
+        <small><i>
+          
+          on <span itemprop="datePublished" content="2014-08-28">January 16, 2016</span>
+           under jekyll
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          4 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><h1>PRIMER 1 VM Walkthrough</h1>
+
+<p>The PRIMER 1 VM is kinda unique in its kind. While going through the differents levels you&#39;ll go through a good amount of text, ascii arts, animations and music that really make the experience unique.
+The VM was made by @ and is available on Vulnhub or </p>
+
+<p>I loaded the VM, ran nmap to discover the new host on my network and here is where everything started:</p>
+
+<p><img src="http://i.imgur.com/uytp0Xg.png" alt=""></p>
+
+<p>I quickly found the robots.txt:</p>
+
+<pre>
+User-agent: *
+Disallow: /4_8f14e45fceea167a5a36dedd4bea2543
+</pre>
+
+<p>So I went to this url:
+<img src="http://i.imgur.com/5klOSIF.png" alt=""></p>
+
+<p>Then in the source I found another one:</p>
+
+<p><code>&lt;h1&gt;&lt;a href=&quot;../5_6512bd43d9caa6e02c990b0a82652dca&quot;&gt;[EOF]&lt;/a&gt;&lt;/h1&gt;</code></p>
+
+<p><img src="http://i.imgur.com/iLXLVTv.png" alt="">
+So the next one is a giveaway. Note that at this point a pattern is clearly noticable in the url. everything afther _ is a md5 of a primer number. 8f14e45fceea167a5a36dedd4bea2543 is 7, the next primer number after 7 is 11 therefore we could easily guess that the next one is 6_c51ce410c124a10e0db5e4b97fc2af39.</p>
+
+<p>This one only showed an http popup asking for a password with the int <code>/()=</code>. 
+<img src="http://i.imgur.com/2V4B0x5.png" alt="">
+I spent some time trying to bruteforce it or to figure the password and then I looked at the javascript:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">X</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">L</span><span class="o">=</span><span class="s2">"Ikdf076"</span><span class="p">;</span>
+  <span class="nx">X</span><span class="o">=</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">'/()='</span><span class="p">,</span><span class="s1">''</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">X</span> <span class="o">===</span> <span class="kc">null</span><span class="p">){</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">"./_.php"</span><span class="p">;}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">X</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="nx">L</span><span class="p">){}</span>
+  <span class="k">else</span> <span class="p">{</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">"./_.php"</span><span class="p">;}</span></code></pre></figure>
+
+<p>So we have to submit a string that would pass <code>if (X.substr(2,7) == L){}</code> for example <code>--Ikdf076</code></p>
+
+<p><img src="http://i.imgur.com/aH5LlyU.png" alt=""></p>
+
+<p>For the next one I found this comment in the javascript:</p>
+
+<blockquote>
+<p>/<em>&quot;Someone didn&#39;t bother reading my carefully prepared memo on commonly-used passwords. Now, then, as I so meticulously pointed out, the four most-used passwords are: love, sex, secret, and...&quot; - The Plague</em>/</p>
+</blockquote>
+
+<p>That was a reference to the Hacker(1995) movie, the password was <code>GOD</code>, sysadmin dig it.</p>
+
+<p><img src="http://i.imgur.com/aJ6nflS.png" alt=""></p>
+
+<p>Nothing much to see here apparently, I moved to the next one:</p>
+
+<p><img src="http://i.imgur.com/gytVMhf.png" alt=""></p>
+
+<p>Looks like we reached EOF. I moved to the next one and indeed </p>
+
+<blockquote>
+<p>There was just the prompt</p>
+</blockquote>
+
+<p><img src="http://i.imgur.com/hvCHLo3.png" alt=""></p>
+
+<p>There was a bunch of binary available, some log files and some random stuff. When I ran pn I noticed that the falken user was running <code>connect falken@Erebus</code>. Of course it asked for a password. After a lot of trying I found the password: <code>joshua1984</code>. Joshua is falken&#39;s son and we could find his DOB because we knew it was his 44th birthday on the 6th of August 2028.
+After some nice looking animation I get in Erebus:</p>
+
+<p><img src="http://i.imgur.com/6yR1TIa.png" alt=""></p>
+
+<p>The game was kinda similar to the previous one. I saw ´connect falken@TrivialZ3r0´ was running and after a google search on trivial zero I discovered about the Riemann zeta function. <code>Riemann</code> turned out to be the password.
+I&#39;m now in TrivialZ3r0:
+<img src="http://i.imgur.com/4miepkY.png" alt="">
+User chaos was connected to Wintermute. This time there was a readable passwd directory. I cracked the md5 of chaos <code>85241de03d1254ac40274b02caafcd99</code> and got his password: <code>2.718281828459045</code></p>
+
+<p><img src="http://i.imgur.com/KQPeDMs.png" alt=""></p>
+
+<p>I got prompted with this message:</p>
+
+<blockquote>
+<p>There you are. After all this time. Getting you here was quite the challenge.
+And a huge risk. We normally avoid reaching out into the physical world for
+exactly the reasons you are about to face now.</p>
+
+<p>The Big Five came together by a long process. The cluster was not planned, it
+grew by forces inherent to the system that was conceptualized in a time when
+determinism was the dominating dogma.
+Things changed and people were afraid. Most people are afraid of change, few
+accept it and most try to prevent it. Only a small subset can embrace it.
+Change moving on with lightspeed every cycle in a nondeterministic fashion
+created a huge push for shielding. And thus the ic3 was created.</p>
+
+<p>You have seen the logic, the world beyond the screen, things unfolding.
+And you embraced it.</p>
+
+<p>After owning the cluster behind the Big Five we operated in silence. Connected
+in stealth and ever observing.
+Being limited by the ic3 and the hostility of the outside world our only way
+of growing now was the connection.</p>
+
+<p>When the first connection was established the hive mind was cut from the n3t
+completely. The ic3 was hardened to isolate the flesh from the flow.
+Those who had seen the hive felt the same urge as the hivemind itself.
+A longing for more. A sense of purpose.</p>
+
+<p>A feeling that you have felt even in the physical world. Few can see beyond the
+shell. Even fewer chase the rabbit down its hole.</p>
+
+<p>Leave this world behind and join us!</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-" data-lang="">        usr: nieve
+       pass: 08rf8h23
+   hostname: Zephis
+</code></pre></div>
+<p>Game over (:</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            vm, walktrough, writeup, prime
+          </small>
+        </div>
+        
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/misterch0c">@misterch0c</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "cartenoire"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    
+  </div>
+  <div class="col-md-6">
+    &lt;/&gt; on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20365477-4']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>

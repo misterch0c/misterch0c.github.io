@@ -340,7 +340,7 @@ ul {
       padding-bottom: 10px; }
       @media (min-width: 768px) {
         .single .article .content {
-          font-size: 24px;
+          font-size: 18px;
           padding-left: 30px;
           padding-right: 30px;
           padding-top: 40px;
@@ -362,7 +362,7 @@ ul {
         color: white;
         box-sizing: content-box;
         border: none;
-        font-size: 28px; }
+        font-size: 21px; }
         @media (min-width: 768px) {
           .single .article .content blockquote {
             margin-left: -30px;

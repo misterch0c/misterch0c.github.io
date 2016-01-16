@@ -4,7 +4,7 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>So, What is Jekyll?</title>
+<title>Infosec Institute CTF Writeup lvl 7 - 13</title>
 <meta name="description" content="A dark blog theme for Jekyll.">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -55,11 +55,11 @@
     </ul>
 
     <p class="links">
-  <a href="http://www.twitter.com/MisterChOc" target="_new"><i class="fa fa-twitter"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-linkedin"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-google-plus"></i></a>
-  <a href="https://github.com/jacobtomlinson" target="_new"><i class="fa fa-github-alt"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-stack-overflow"></i></a>
+  <a href="http://www.twitter.com/misterch0c" target="_new"><i class="fa fa-twitter"></i></a>
+  
+  
+  <a href="https://github.com/misterch0c" target="_new"><i class="fa fa-github-alt"></i></a>
+  
   <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
 </p>
 
@@ -82,32 +82,93 @@
       </div>
       
 
-      <h1 class="header" itemprop="name">So, What is Jekyll?</h1>
+      <h1 class="header" itemprop="name">Infosec Institute CTF Writeup lvl 7 - 13</h1>
 
       <div class="author">
         <small><i>
           
-          on <span itemprop="datePublished" content="2014-08-28">June 9, 2014</span>
+          on <span itemprop="datePublished" content="2014-08-28">July 4, 2015</span>
            under jekyll
         </i></small>
       </div>
 
       <div class="read-time">
         <small>
-          1 minute read
+          3 minute read
         </small>
       </div>
 
       <div class="content-panel content">
-        <span itemprop="articleBody"><p>Jekyll is a tool for transforming your plain text into static websites and
-blogs. It is simple, static, and blog-aware. Jekyll uses the
-<a href="http://docs.shopify.com/themes/liquid-basics">Liquid</a> templating
-language and has builtin <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
-and <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a> support.</p>
+        <span itemprop="articleBody"><h3>Level 7</h3>
 
-<p>It also ties in nicely to <a href="https://pages.github.com/">Github Pages</a>.</p>
+<blockquote>
+<p>You have some kind of a login form. You want to make a prank on Twitter. You want to add a h1 to the page and share it with your Twitter followers so they can see that you can modify the page as it pleases you. You do not really want to cause harm. Do some magic and add <code>&lt;h1&gt;YOUR NAME HERE&lt;/h1&gt;</code> in a way that people who visit the link you provide will the heading.</p>
+</blockquote>
 
-<p>Learn more about Jekyll on their <a href="http://jekyllrb.com/">website</a>.</p>
+<p>There was an hidden field on the page and it was pretty clear that this page was making request on it&#39;s own. So we have to exploit the <a href="http://www.cyberscorpion.com/2012-03/why-php_self-should-be-avoided-when-creating-website-links/">PHP_SELF vulnerability</a> here. This is how I injected the code closing the input tag:<br>
+<code>http://ctf.infosecinstitute.com/ctf2/exercises/ex7.php?arg=&#39;&gt;&lt;h1&gt;username&lt;/h1&gt;</code></p>
+
+<h3>Level 8</h3>
+
+<blockquote>
+<p>Your task is to penetrate this site. You need to take advantage of the image upload and execute a JS script with an alert somehow through a file. Godspeed!</p>
+</blockquote>
+
+<p>The first thing I did was to upload a regular image file. Then I clicked on the &quot;Editor&#39;s choice&quot; and from there I knew were were stored the images:<br>
+<code>http://ctf.infosecinstitute.com/ctf2/ex8_assets/img/chess3.png</code><br>
+<code>http://ctf.infosecinstitute.com/ctf2/exercises/ex8.php?attachment_id=1</code><br>
+Ok, so I tried to upload a html file but got an error. This was easy to bypass using burpsuite I just changed the extension from .jpg to .html and it worked (:</p>
+
+<p><img src="http://imgur.com/HmyhpG5.png" alt=""></p>
+
+<p><img src="http://imgur.com/w7v7uCg.png" alt=""></p>
+
+<p>Unfortunately I couldn&#39;t access it like the other images. I got an error because the server is trying to load an image but our file isn&#39;t a valid images. So I thought maybe If I increased the id in attachment_id then my file should be referenced but nope... After some fuzzing I found out I was right about the referencing:<br>
+<code>http://ctf.infosecinstitute.com/ctf2/exercises/ex8.php?file=payload8.jpg</code></p>
+
+<h3>Level 9</h3>
+
+<p><img src="http://imgur.com/uYtggJq.png" alt=""></p>
+
+<p>First thing I did was to open Cookie Manager and check the cookie. I saw a string which looked like b64 in the content value and I was right. The decoded b64 looks like this: <code>JOHN+DOE</code>, alright.. So <code>MARY+JANE</code> in b64 is <code>TUFSWStKQU5F</code></p>
+
+<p><img src="http://imgur.com/4kgCqiZ.png" alt=""></p>
+
+<p><img src="http://imgur.com/FdZhUIr.png" alt=""></p>
+
+<h3>Level 10</h3>
+
+<p>A game... Ew I hate games, I didn&#39;t even wanted to play it to hack it, sorry</p>
+
+<h3>Level 11</h3>
+
+<blockquote>
+<p>It seems you have been blacklisted. Knowing what websites typically use to identify their users - try to get rid of that ban</p>
+</blockquote>
+
+<p>First thing I did was to connect to my vpn to see if I see any change but nope. So I check the cookie and <code>content</code> value was &#39;no&quot; so I just said &#39;yes&#39;</p>
+
+<p><img src="http://imgur.com/XUcqBaN.png" alt=""></p>
+
+<h3>Level 12</h3>
+
+<blockquote>
+<p>Your task is to crack the password of the user called admin. Use whatever tool you like but we would recommend entering Google and searching for filetype:lst password in order to perform a dictionary attack.</p>
+</blockquote>
+
+<p>Again I skipped this one because they pretty much give it away. They give the worlist and the attack... So just use your favorite http form bruteforer like wpfuzz, medusa, hydra, patator...</p>
+
+<h3>Level 13</h3>
+
+<blockquote>
+<p>Hmm, it seems that level thirteen is redirecting to this page. Why do not you analyze the redirect and search if the redirect is validated thoroughly. If not, you want to redirect to a page on a remote server and send links to people fooling them to think they are accessing a different domain.</p>
+</blockquote>
+
+<p>It took me a while to figure this on because I was jumping levels and ex13.php was a different page than the real challenge. But when I clicked on it and got the real page the solution was pretty obvious. It&#39;s just and insecure redirect:</p>
+
+<p><code>http://ctf.infosecinstitute.com/ctf2/exercises/ex13.php?redirect=//google.com</code></p>
+
+<p>Thx to byt3me who helped me in some of the challenges,you can checkout his writups which are more detailed than mine on <a href="https://secnotes.github.io/">SecNotes&lt;</a></p>
 </span>
 
         
@@ -121,7 +182,7 @@ and <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>
         <div class="tags">
           <small>
           <i class="fa fa-tags"></i>
-            about, jekyll
+            thumbnails, carte noire
           </small>
         </div>
         
@@ -130,7 +191,7 @@ and <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>
 
       <div class="content-panel feedback">
         I <i class="fa fa-heart"></i> feedback.<br />
-        Let me know what you think of this article on twitter <a href="http://www.twitter.com/MisterChOc">@MisterChOc</a> or leave a comment below!
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/misterch0c">@misterch0c</a> or leave a comment below!
       </div>
 
       

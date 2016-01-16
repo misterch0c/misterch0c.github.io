@@ -4,7 +4,7 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carte Noire in Action</title>
+<title>Infosec Institute CTF writeup lvl 1- 6</title>
 <meta name="description" content="A dark blog theme for Jekyll.">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -55,11 +55,11 @@
     </ul>
 
     <p class="links">
-  <a href="http://www.twitter.com/MisterChOc" target="_new"><i class="fa fa-twitter"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-linkedin"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-google-plus"></i></a>
-  <a href="https://github.com/jacobtomlinson" target="_new"><i class="fa fa-github-alt"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-stack-overflow"></i></a>
+  <a href="http://www.twitter.com/misterch0c" target="_new"><i class="fa fa-twitter"></i></a>
+  
+  
+  <a href="https://github.com/misterch0c" target="_new"><i class="fa fa-github-alt"></i></a>
+  
   <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
 </p>
 
@@ -77,105 +77,86 @@
 
     <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
       
-      <div class="thumb">
-        <i class="fa fa-cogs fa-4x"></i>
-      </div>
-      
 
-      <h1 class="header" itemprop="name">Carte Noire in Action</h1>
+      <h1 class="header" itemprop="name">Infosec Institute CTF writeup lvl 1- 6</h1>
 
       <div class="author">
         <small><i>
           
-          on <span itemprop="datePublished" content="2014-08-28">June 10, 2014</span>
+          on <span itemprop="datePublished" content="2014-08-28">July 2, 2015</span>
            under jekyll
         </i></small>
       </div>
 
       <div class="read-time">
         <small>
-          1 minute read
+          3 minute read
         </small>
       </div>
 
       <div class="content-panel content">
-        <span itemprop="articleBody"><p><strong>Note</strong> - This article is a derivative of <a href="http://pixyll.com/jekyll/pixyll/2014/06/10/see-pixyll-in-action/">&quot;See pixyll in action&quot;</a>, taken from the lovely jekyll theme <a href="http://pixyll.com/">pixyll</a>.</p>
+        <span itemprop="articleBody"><h3>Level 1</h3>
 
-<p>All links are easy to <a href="#">locate and discern</a>, yet don&#39;t detract from the harmony
-of a paragraph. The <em>same</em> goes for italics and <strong>bold</strong> elements. Even the the strikeout
-works if <del>for some reason you need to update your post</del>. For consistency&#39;s sake,
-<ins>The same goes for insertions</ins>, of course.</p>
-
-<h3>Code, with syntax highlighting</h3>
-
-<p>Code blocks use the <a href="https://noahfrederick.com/log/lion-terminal-theme-peppermint/">peppermint</a> theme.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
-
-  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
-  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format: </span><span class="kp">true</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-    <span class="nb">self</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="n">email</span>
-    <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
-
-<span class="nt">&lt;style&gt;body</span> <span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;}</span><span class="nt">&lt;/style&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/javascript"</span><span class="nt">&gt;</span>
-  <span class="kd">function</span> <span class="nx">$init</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="kc">true</span><span class="p">;}</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">checked</span> <span class="na">class=</span><span class="s">"title"</span> <span class="na">id=</span><span class="s">'title'</span><span class="nt">&gt;</span>Title<span class="nt">&lt;/p&gt;</span>
-  <span class="c">&lt;!-- here goes the rest of the page --&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+<p>For this level we are already told that we have to exploit an XSS and pop an alert containing &quot;Ex1&quot;. So the basic payload to do that looks like this:<br>
+<code>&lt;script&gt;alert(&#39;Ex1&#39;)&lt;/script&gt;</code><br>
+We can&#39;t just post this because some validation are made on both parameters. I choose to attack the url parameter but you could attack the other one it&#39;s basically the same thing.<br>
+This is the code of the url element:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;input type="text" placeholder="Name of site" maxsize="10" class="form-control" pattern="[A Za-z]+" required="" name="name"&gt;  
 </code></pre></div>
-<h1>Headings!</h1>
+<p>So I removed <code>pattern=&quot;[A Za-z]</code> which makes the input only accept uppercase or lowercase characters and also changed the type value from &quot;url&quot; to &quot;text&quot;.So now we can post stuff! But still no alert. I took a look at the javascript and noticed this:  </p>
+<div class="highlight"><pre><code class="language-" data-lang="">var siteName = $(".ex1input[type='text']").val().trim().replace(/&lt;/g,"&amp;lt;").replace(/&gt;/g, "&amp;gt;");
+</code></pre></div>
+<p>What it&#39;s doing is replacing &lt; and &gt; with their html code, which is not what we want. So there in chrome I just removed the .replace(), hit ctrl+s and voilà</p>
 
-<p>They&#39;re responsive, and well-proportioned (in <code>padding</code>, <code>line-height</code>, <code>margin</code>, and <code>font-size</code>).</p>
+<p><img src="http://imgur.com/esDJfo6.png" alt=""></p>
 
-<h5>They draw the perfect amount of attention</h5>
+<h2>Level 2</h2>
 
-<p>This allows your content to have the proper informational and contextual hierarchy. Yay.</p>
+<p>The page showed a calculator and we were asked to inject the PHP statement shat shows informations about Apache etc which is basicaly <code>phpinfo();</code>. I quickly noticed that the two inputs were verified. You could only enter numbers and nothing on the frontend to bypass that. That leaves us with the only other thing can we&#39;re sending: the operator.<br>
+I modified the operator value like this:<br>
+<code>&lt;option value=&quot;;phpinfo();&quot;&gt;+&lt;/option&gt;</code> so basically when you send 1+1 it would translate to valid php code: <code>1;phpinfo();1;</code></p>
 
-<h3>There are lists, too</h3>
+<h2>Level 3</h2>
 
-<ul>
-<li>Apples</li>
-<li>Oranges</li>
-<li>Potatoes</li>
-<li>Milk</li>
-</ul>
+<p><img src="http://imgur.com/JoUsMUl.png" alt=""></p>
 
-<ol>
-<li>Mow the lawn</li>
-<li>Feed the dog</li>
-<li>Dance</li>
-</ol>
+<p>First thing is to create an account, then after login I could see &#39;role:normal&#39; which was a hint. So the delimiter is &quot;:&quot; to separate key/value and I guessed that it would have a newline after that.<br>
+So my idea was to insert something like <code>someName\nrole:admin</code>but I couldn&#39;t just do this in the form. The easiest way I found to do it is to change the input type to &quot;textarea&quot;, that allows you to input a new line and <code>role:admin</code> in it. Otherwhise you can intercept the request with burpsuite for example and modify it there</p>
 
-<h3>Images look great, too</h3>
-
-<p><img src="http://i.imgur.com/DMCHDqF.jpg" alt="Thumper"></p>
-
-<h3>Stylish blockquotes included</h3>
-
-<p>You can use the markdown quote syntax, <code>&gt;</code> for simple quotes.</p>
+<h2>Level 4</h2>
 
 <blockquote>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.</p>
+<p>You are confronted with a website that loads some .txt files to display content for its pages. You are thinking that it may be vulnerable. You aim to load a nice file from a remote server and share the link with unsuspecting visitors. Your task is to successfully load a PHP file located in the root of infosecinstitute.com. The file should not exist but you must load it without getting errors and it must have the PHP file extension.</p>
 </blockquote>
 
-<h3>There&#39;s more being added all the time</h3>
+<p>The url looked like:<br>
+<code>http://ctf.infosecinstitute.com/ctf2/exercises/ex4.php?file=file1.txt</code> So from the instruction and the url we can deduce we can use RFI here. And if you read carrefuly the instruction (unlike me at first) you know that the root is <code>infosecinstitute.com</code> and not <code>../../</code> of course...<br>
+From there we got this error message:</p>
 
-<p>Checkout the <a href="https://github.com/jacobtomlinson/carte-noire">Github repository</a> to request,
-or add, features.</p>
+<p><img src="http://imgur.com/aLaXdAC.png" alt=""></p>
 
-<p>Happy writing.</p>
+<p>That&#39;s right. So somehow the website detected we entered an url. There must some regex behind that. Earlier I did a bit of fuzzing on the file attribute and noted that I got different error message if I used upper or lower case. So this is how I got the flag, bypassing the regex:<br>
+<code>http://ctf.infosecinstitute.com/ctf2/exercises/ex4.php?file=hTtp://infosecinstitute.com/file2.txt.php</code></p>
+
+<h2>Level 5</h2>
+
+<blockquote>
+<p>It seems you have encountered a page which requires users to login before viewing. Do some magic without having to log in. The login button didn&#39;t work</p>
+</blockquote>
+
+<p><img src="http://imgur.com/ORJ1nd8.png" alt=""></p>
+
+<p>I intercept a request with burpsuite and changed the refer to login.html which I got from the source code. It tricks the browser to think we&#39;re coming from the login page</p>
+
+<p><img src="http://imgur.com/VR7IEGe.png" alt=""></p>
+
+<h2>Level 6</h2>
+
+<blockquote>
+<p>It seems you have landed on a site that takes HTML tags for article&#39;s comments. You want to exploit this by making the users perform an action on the bank.php file in the root of site.com, if they are logged in there. You want users browsers to load that page and execute the query string transferTo with the number 555 as a parameter. Go ahead.</p>
+</blockquote>
+
+<p>Well this was just about reading the instructions.</p>
 </span>
 
         
@@ -186,19 +167,12 @@ or add, features.</p>
         
 
         
-        <div class="tags">
-          <small>
-          <i class="fa fa-tags"></i>
-            demo, action, carte, noire
-          </small>
-        </div>
-        
 
       </div>
 
       <div class="content-panel feedback">
         I <i class="fa fa-heart"></i> feedback.<br />
-        Let me know what you think of this article on twitter <a href="http://www.twitter.com/MisterChOc">@MisterChOc</a> or leave a comment below!
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/misterch0c">@misterch0c</a> or leave a comment below!
       </div>
 
       

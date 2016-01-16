@@ -4,7 +4,7 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome to Carte Noire</title>
+<title>Ghost-in-the-Shellcode - Aart Web Writeup</title>
 <meta name="description" content="A dark blog theme for Jekyll.">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -55,11 +55,11 @@
     </ul>
 
     <p class="links">
-  <a href="http://www.twitter.com/MisterChOc" target="_new"><i class="fa fa-twitter"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-linkedin"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-google-plus"></i></a>
-  <a href="https://github.com/jacobtomlinson" target="_new"><i class="fa fa-github-alt"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-stack-overflow"></i></a>
+  <a href="http://www.twitter.com/misterch0c" target="_new"><i class="fa fa-twitter"></i></a>
+  
+  
+  <a href="https://github.com/misterch0c" target="_new"><i class="fa fa-github-alt"></i></a>
+  
   <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
 </p>
 
@@ -78,29 +78,16 @@
     <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
       
       <div class="thumb">
-        <i class="fa fa-heart fa-4x"></i>
+        <i class="fa fa-cogs fa-4x"></i>
       </div>
       
 
-      <h1 class="header" itemprop="name">Welcome to Carte Noire</h1>
+      <h1 class="header" itemprop="name">Ghost-in-the-Shellcode - Aart Web Writeup</h1>
 
       <div class="author">
         <small><i>
           
-          by
-          <span itemprop="author">
-            
-              <a rel="author" href="http://carte-noire.jacobtomlinson.co.uk/">
-            
-            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-              <span itemprop="name">Jacob Tomlinson</span>
-            </span>
-            
-              </a>
-            
-          </span>
-          
-          on <span itemprop="datePublished" content="2014-08-28">March 23, 2015</span>
+          on <span itemprop="datePublished" content="2014-08-28">January 18, 2015</span>
            under jekyll
         </i></small>
       </div>
@@ -112,17 +99,34 @@
       </div>
 
       <div class="content-panel content">
-        <span itemprop="articleBody"><p>Welcome to Carte Noire.</p>
+        <span itemprop="articleBody"><h1>[GITS-CTF2015] Aart - web writeup</h1>
 
-<p>Carte Noire began as a new theme for <a href="http://www.jacobtomlinson.co.uk/">my personal blog</a>, but has now taken
-on a life of its own as a free theme for Jekyll.</p>
+<p>The <a href="https://2015.ghostintheshellcode.com/">Ghost in the Shellcode CTF</a> is now over but the website is still up and you can still complete challenges if you like (update: well not anymore..)<br>
+This is my little write up and the web challenge called &quot;Aart&quot;. Here&#39;s how it looks when you go to the server for the firsttime  </p>
 
-<p>The theme has been designed with simplicity and readability in mind. It makes
-use of third party services such as Disqus ad AddThis to ensure the blog has
-all the features you would expect from a dynamic application such as Wordpress
-but with the hosting and maintenance simplicity of Jekyll.</p>
+<p><img src="http://i.imgur.com/GgqOl5N.png" alt="">  </p>
 
-<p>Please use/copy/share Carte Noire!</p>
+<p>On the register page there was a &quot;Source code&quot; link so I downloaded the code and took a look at it. I noticed 2 interesting things<br>
+Firstly the 2 SQL requests that are made when a user register  </p>
+
+<p><img src="http://i.imgur.com/1qQ1z0n.png" alt="">  </p>
+
+<p>Then in this portion of code you can actually see that if isRestricted is true then your account is restricted and otherwise you can get the key.</p>
+
+<p><img src="http://imgur.com/jLrb3C5.png" alt="">  </p>
+
+<p>If you still didn&#39;t get it we&#39;re just going to register/login a bunch of usernames and wait for the key (:<br>
+It&#39;s a timing thing. At some point the first INSERT TO will be called twice before the second one has even been called once. This will give us a user with no restricted flag.  </p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="o">{</span>1..50<span class="o">}</span>;
+<span class="k">do     
+</span>curl --data <span class="s2">"username=i</span><span class="nv">$i</span><span class="s2">&amp;password=i"</span> http://aart.2015.ghostintheshellcode.com/register.php -s &gt;&amp;1 &gt;/dev/null &amp;     
+curl --data <span class="s2">"username=i</span><span class="nv">$i</span><span class="s2">&amp;password=i"</span> http://aart.2015.ghostintheshellcode.com/login.php;
+<span class="k">done</span></code></pre></figure>
+
+<p>So this script is going to create accounts from &#39;i1&#39; to &#39;i50&#39; with the password &#39;i&#39;. At some point we stumble on an unrestricted account  </p>
+
+<p>Here we go. &quot;this is a key&quot; was actually the key here (;</p>
 </span>
 
         
@@ -136,7 +140,7 @@ but with the hosting and maintenance simplicity of Jekyll.</p>
         <div class="tags">
           <small>
           <i class="fa fa-tags"></i>
-            welcome, to, carte, noire
+            demo, action, carte, noire
           </small>
         </div>
         
@@ -145,7 +149,7 @@ but with the hosting and maintenance simplicity of Jekyll.</p>
 
       <div class="content-panel feedback">
         I <i class="fa fa-heart"></i> feedback.<br />
-        Let me know what you think of this article on twitter <a href="http://www.twitter.com/MisterChOc">@MisterChOc</a> or leave a comment below!
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/misterch0c">@misterch0c</a> or leave a comment below!
       </div>
 
       
