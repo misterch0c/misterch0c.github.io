@@ -5,8 +5,8 @@
     <description>Software is like underwear. Update it regularly.</description>
     <link>http://misterch0c.github.io/</link>
     <atom:link href="http://misterch0c.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 16 Jan 2016 21:20:15 +0100</pubDate>
-    <lastBuildDate>Sat, 16 Jan 2016 21:20:15 +0100</lastBuildDate>
+    <pubDate>Sun, 17 Jan 2016 12:17:40 +0100</pubDate>
+    <lastBuildDate>Sun, 17 Jan 2016 12:17:40 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -136,7 +136,7 @@ cat /home/omarabdu/public_html/nonso/config.php&lt;/code&gt;&lt;/pre&gt;&lt;/fig
         <description>&lt;h1&gt;PRIMER 1 VM Walkthrough&lt;/h1&gt;
 
 &lt;p&gt;The PRIMER 1 VM is kinda unique in its kind. While going through the differents levels you&amp;#39;ll go through a good amount of text, ascii arts, animations and music that really make the experience unique.
-The VM was made by @ and is available on Vulnhub or &lt;/p&gt;
+The VM was made by @ and is available on &lt;a href=&quot;https://www.vulnhub.com/entry/primer-1,136/&quot;&gt;Vulnhub&lt;/a&gt; or &lt;a href=&quot;http://wiki.fablab-karlsruhe.de/doku.php?id=projekte:primer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I loaded the VM, ran nmap to discover the new host on my network and here is where everything started:&lt;/p&gt;
 
@@ -159,7 +159,7 @@ Disallow: /4_8f14e45fceea167a5a36dedd4bea2543
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/iLXLVTv.png&quot; alt=&quot;&quot;&gt;
 So the next one is a giveaway. Note that at this point a pattern is clearly noticable in the url. everything afther _ is a md5 of a primer number. 8f14e45fceea167a5a36dedd4bea2543 is 7, the next primer number after 7 is 11 therefore we could easily guess that the next one is 6_c51ce410c124a10e0db5e4b97fc2af39.&lt;/p&gt;
 
-&lt;p&gt;This one only showed an http popup asking for a password with the int &lt;code&gt;/()=&lt;/code&gt;. 
+&lt;p&gt;This one only showed an http popup asking for a password with the int &lt;code&gt;/()=&lt;/code&gt;.
 &lt;img src=&quot;http://i.imgur.com/2V4B0x5.png&quot; alt=&quot;&quot;&gt;
 I spent some time trying to bruteforce it or to figure the password and then I looked at the javascript:&lt;/p&gt;
 
@@ -188,7 +188,7 @@ I spent some time trying to bruteforce it or to figure the password and then I l
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gytVMhf.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;Looks like we reached EOF. I moved to the next one and indeed &lt;/p&gt;
+&lt;p&gt;Looks like we reached EOF. I moved to the next one and indeed&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;There was just the prompt&lt;/p&gt;
@@ -246,6 +246,8 @@ shell. Even fewer chase the rabbit down its hole.&lt;/p&gt;
    hostname: Zephis
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Game over (:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/hRN9O94.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Jan 2016 13:31:19 +0100</pubDate>
         <link>http://misterch0c.github.io/jekyll/2016/01/16/PRIMER-1-walkthrough/</link>

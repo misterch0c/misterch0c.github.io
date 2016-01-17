@@ -99,7 +99,7 @@
         <span itemprop="articleBody"><h1>PRIMER 1 VM Walkthrough</h1>
 
 <p>The PRIMER 1 VM is kinda unique in its kind. While going through the differents levels you&#39;ll go through a good amount of text, ascii arts, animations and music that really make the experience unique.
-The VM was made by @ and is available on Vulnhub or </p>
+The VM was made by @ and is available on <a href="https://www.vulnhub.com/entry/primer-1,136/">Vulnhub</a> or <a href="http://wiki.fablab-karlsruhe.de/doku.php?id=projekte:primer">here</a></p>
 
 <p>I loaded the VM, ran nmap to discover the new host on my network and here is where everything started:</p>
 
@@ -122,7 +122,7 @@ Disallow: /4_8f14e45fceea167a5a36dedd4bea2543
 <p><img src="http://i.imgur.com/iLXLVTv.png" alt="">
 So the next one is a giveaway. Note that at this point a pattern is clearly noticable in the url. everything afther _ is a md5 of a primer number. 8f14e45fceea167a5a36dedd4bea2543 is 7, the next primer number after 7 is 11 therefore we could easily guess that the next one is 6_c51ce410c124a10e0db5e4b97fc2af39.</p>
 
-<p>This one only showed an http popup asking for a password with the int <code>/()=</code>. 
+<p>This one only showed an http popup asking for a password with the int <code>/()=</code>.
 <img src="http://i.imgur.com/2V4B0x5.png" alt="">
 I spent some time trying to bruteforce it or to figure the password and then I looked at the javascript:</p>
 
@@ -151,7 +151,7 @@ I spent some time trying to bruteforce it or to figure the password and then I l
 
 <p><img src="http://i.imgur.com/gytVMhf.png" alt=""></p>
 
-<p>Looks like we reached EOF. I moved to the next one and indeed </p>
+<p>Looks like we reached EOF. I moved to the next one and indeed</p>
 
 <blockquote>
 <p>There was just the prompt</p>
@@ -209,6 +209,8 @@ shell. Even fewer chase the rabbit down its hole.</p>
    hostname: Zephis
 </code></pre></div>
 <p>Game over (:</p>
+
+<p><img src="http://i.imgur.com/hRN9O94.png" alt=""></p>
 </span>
 
         
