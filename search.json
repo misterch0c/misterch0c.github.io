@@ -4,8 +4,16 @@
     "title"    : "1 panel, 2 panels, 3 panels...",
     "category" : "",
     "tags"     : "keybase, c&c, botnet, malware",
-    "url"      : "/jekyll/2016/01/16/1-panel-2-panels/",
-    "date"     : "2016-01-16 18:00:21 +0100"
+    "url"      : "/jekyll/2016/01/17/1-panel-2-panels/",
+    "date"     : "2016-01-17 13:00:21 +0100"
+    } ,
+    
+  {
+    "title"    : "1 panel, 2 panels, 3 panels...",
+    "category" : "",
+    "tags"     : "keybase, c&c, botnet, malware",
+    "url"      : "/jekyll/2016/01/17/1-panel-2-panels/",
+    "date"     : "2016-01-17 13:00:21 +0100"
     } ,
     
   {
@@ -27,8 +35,8 @@
   {
     "title"    : "Infosec Institute CTF writeup lvl 1- 6",
     "category" : "",
-    "tags"     : "",
-    "url"      : "/jekyll/update/2015/07/02/infosec-institute-ctf-part-one/",
+    "tags"     : "ctf, writeup, infosec",
+    "url"      : "/jekyll/2015/07/02/infosec-institute-ctf-part-one/",
     "date"     : "2015-07-02 16:22:05 +0200"
     } ,
     
