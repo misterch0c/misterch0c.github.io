@@ -9,14 +9,6 @@
     } ,
     
   {
-    "title"    : "1 panel, 2 panels, 3 panels...",
-    "category" : "",
-    "tags"     : "keybase, c&c, botnet, malware",
-    "url"      : "/jekyll/2016/01/17/1-panel-2-panels/",
-    "date"     : "2016-01-17 13:00:21 +0100"
-    } ,
-    
-  {
     "title"    : "PRIMER 1 VM Walkthrough",
     "category" : "",
     "tags"     : "vm, walktrough, writeup, prime",
